@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4091543581005142}
   - component: {fileID: 50171483713704104}
   - component: {fileID: 61793459874970794}
+  - component: {fileID: 114226582514537332}
   m_Layer: 11
   m_Name: Rocket Missile
   m_TagString: RocketMissile
@@ -39,7 +40,7 @@ GameObject:
   - component: {fileID: 198731562237260868}
   - component: {fileID: 199500455261112994}
   m_Layer: 0
-  m_Name: Flame
+  m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472601962585374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22519833, y: -0.82744247, z: 0}
+  m_LocalPosition: {x: 0.21469235, y: -3.3132226, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4627704690923262}
@@ -147,6 +148,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46, y: 0.15}
   m_EdgeRadius: 0
+--- !u!114 &114226582514537332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1472601962585374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20324606cb1ea446ba26d645394cfe5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!198 &198731562237260868
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -4668,7 +4681,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 294814483
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 2
@@ -4722,7 +4735,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 294814483
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d3d2b9c594d1443df9a8bfd137966112, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
