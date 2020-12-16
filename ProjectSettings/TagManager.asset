@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Road
+    uniqueID: 1984236661
+    locked: 0
+  - name: Wall
+    uniqueID: 2098364615
+    locked: 0
+  - name: Move
+    uniqueID: 1663698945
+    locked: 0
+  - name: Player
+    uniqueID: 1052137861
+    locked: 0
+  - name: FX
+    uniqueID: 2570085387
+    locked: 0
+  - name: UI
+    uniqueID: 4226477455
+    locked: 0
