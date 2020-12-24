@@ -1,12 +1,11 @@
 ﻿public enum TypeWeaponName : byte
 {
-    None   = 0,
-    Melee  = 1,
-    Pistol = 2,
-    MP5    = 3,
-    M3     = 4,
-    AK47   = 5,
-    AWP    = 6,
-    Fire   = 7,
-    Rocket = 8
+    Melee   = 0,
+    Pistol  = 1,
+    MP5     = 2,
+    M3      = 3,
+    AK47    = 4,
+    AWP     = 5,
+    Fire    = 6,
+    Rocket  = 7
 }

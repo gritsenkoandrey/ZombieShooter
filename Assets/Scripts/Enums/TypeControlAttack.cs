@@ -1,6 +1,5 @@
 ﻿public enum TypeControlAttack : byte
 {
-    None  = 0,
-    Click = 1,
-    Hold  = 2
+    Click = 0,
+    Hold  = 1
 }

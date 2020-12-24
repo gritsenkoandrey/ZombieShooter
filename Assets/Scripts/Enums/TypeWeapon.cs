@@ -1,7 +1,6 @@
 ﻿public enum TypeWeapon : byte
 {
-    None    = 0,
-    Melee   = 1,
-    OneHand = 2,
-    TwoHand = 3
+    Melee   = 0,
+    OneHand = 1,
+    TwoHand = 2
 }

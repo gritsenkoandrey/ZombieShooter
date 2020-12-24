@@ -8,8 +8,10 @@ using Object = UnityEngine.Object;
 public class Data : ScriptableObject
 {
     [SerializeField] private string _playerDataPath = null;
+    [SerializeField] private string _weaponDataPath = null;
 
     private static PlayerData _playerData;
+    private static WeaponData _weaponData;
 
     private static readonly Lazy<Data> _instance = new Lazy<Data>(() => Load<Data>("Data/" + typeof(Data).Name));
     public static Data Instance { get { return _instance.Value; } }
@@ -23,6 +25,18 @@ public class Data : ScriptableObject
                 _playerData = Load<PlayerData>("Data/" + Instance._playerDataPath);
             }
             return _playerData;
+        }
+    }
+
+    public WeaponData WeaponData
+    {
+        get
+        {
+            if (_weaponData == null)
+            {
+                _weaponData = Load<WeaponData>("Data/" + Instance._weaponDataPath);
+            }
+            return _weaponData;
         }
     }
 

@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 
 
-public class WeaponBase : MonoBehaviour
+public abstract class WeaponBase : MonoBehaviour
 {
     public DefaultConfig defaultConfig;
+
     public TypeWeaponName weaponName;
 
     protected PlayerAnimations playerAnimations;
     protected float lastShot;
+
     public int gunIndex;
     public int currentBullet;
     public int bulletMax;
@@ -22,7 +24,17 @@ public class WeaponBase : MonoBehaviour
     {
         if (Time.time > lastShot + defaultConfig.fireRate)
         {
-
+            if (currentBullet > 0)
+            {
+                ProcessAttack();
+                playerAnimations.PlayerAttackAnimation();
+                lastShot = Time.time;
+                currentBullet--;
+            }
+            else
+            {
+                //play no ammo sound
+            }
         }
     }
 
