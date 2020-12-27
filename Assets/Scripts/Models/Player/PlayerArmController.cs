@@ -3,8 +3,8 @@
 
 public class PlayerArmController : MonoBehaviour
 {
-    public Sprite oneHandSprite;
-    public Sprite twoHandSprite;
+    [SerializeField] private Sprite _oneHandSprite;
+    [SerializeField] private Sprite _twoHandSprite;
 
     private SpriteRenderer _spriteRenderer;
 
@@ -15,11 +15,11 @@ public class PlayerArmController : MonoBehaviour
 
     public void ChangeToOneHand()
     {
-        _spriteRenderer.sprite = oneHandSprite;
+        _spriteRenderer.sprite = _oneHandSprite;
     }
 
     public void ChangeToTwoHand()
     {
-        _spriteRenderer.sprite = twoHandSprite;
+        _spriteRenderer.sprite = _twoHandSprite;
     }
 }

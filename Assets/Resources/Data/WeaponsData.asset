@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7c98af25522f84f91faf7b7fb3d65a, type: 3}
   m_Name: WeaponsData
   m_EditorClassIdentifier: 
-  _weapons: []
+  weapons:
+  - {fileID: 11400000, guid: 865bee34b7eb8b94289d0e272acfa216, type: 2}
+  - {fileID: 11400000, guid: 94136a3c3ab8c3847a2a48bee6e4bece, type: 2}
+  - {fileID: 11400000, guid: 1b98bd41d23fd2c4ca69e81e34b1fd3d, type: 2}
+  - {fileID: 11400000, guid: fb217402555e30942a3e37cbfe9064a4, type: 2}
+  - {fileID: 11400000, guid: 596b48bc907a8724d913d6bea9472dd3, type: 2}
+  - {fileID: 11400000, guid: d5b8ab2c9ba12c748a91cf1830415af0, type: 2}
+  - {fileID: 11400000, guid: 4ff52ccc36dccda43b7f70e895971fed, type: 2}
+  - {fileID: 11400000, guid: 4b6e972abfbdd474cadff3df9b4d7174, type: 2}

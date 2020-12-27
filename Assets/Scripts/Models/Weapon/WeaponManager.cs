@@ -6,24 +6,17 @@ public class WeaponManager : MonoBehaviour
 {
     [SerializeField] private List<WeaponBase> _weaponsUnlocked = null;
     [SerializeField] private WeaponBase[] _totalWeapon = null;
-
     private WeaponBase _currentWeapon;
     private int _currentWeaponIndex;
-
     private TypeControlAttack _currentTypeControl;
-
     private PlayerArmController[] _armController;
-
     private PlayerAnimations _playerAnim;
-
     private bool _isShooting;
 
     private void Awake()
     {
         _playerAnim = GetComponent<PlayerAnimations>();
-
         LoadActiveWeapons();
-
         _currentWeaponIndex = 1;
     }
 
@@ -31,8 +24,8 @@ public class WeaponManager : MonoBehaviour
     {
         _armController = GetComponentsInChildren<PlayerArmController>();
         // set the first weapon to be pistol
-        ChangeWeapon(_weaponsUnlocked[1]);
-        _playerAnim.PlayerSwitchWeaponAnimation((int)_weaponsUnlocked[_currentWeaponIndex].defaultConfig.typeWeapon);
+        ChangeWeapon(_weaponsUnlocked[_currentWeaponIndex]);
+        _playerAnim.PlayerSwitchWeaponAnimation((int)_weaponsUnlocked[_currentWeaponIndex].weapon.typeWeapon);
     }
 
     private void LoadActiveWeapons()
@@ -48,7 +41,7 @@ public class WeaponManager : MonoBehaviour
     {
         _currentWeaponIndex++;
         _currentWeaponIndex = (_currentWeaponIndex >= _weaponsUnlocked.Count) ? 0 : _currentWeaponIndex;
-        _playerAnim.PlayerSwitchWeaponAnimation((int)_weaponsUnlocked[_currentWeaponIndex].defaultConfig.typeWeapon);
+        _playerAnim.PlayerSwitchWeaponAnimation((int)_weaponsUnlocked[_currentWeaponIndex].weapon.typeWeapon);
         ChangeWeapon(_weaponsUnlocked[_currentWeaponIndex]);
     }
 
@@ -59,9 +52,9 @@ public class WeaponManager : MonoBehaviour
             _currentWeapon.gameObject.SetActive(false);
         }
         _currentWeapon = newWeapon;
-        _currentTypeControl = newWeapon.defaultConfig.typeControlAttack;
+        _currentTypeControl = newWeapon.weapon.typeControlAttack;
         newWeapon.gameObject.SetActive(true);
-        if (newWeapon.defaultConfig.typeWeapon == TypeWeapon.TwoHand)
+        if (newWeapon.weapon.typeWeapon == TypeWeapon.TwoHand)
         {
             for (int i = 0; i < _armController.Length; i++)
             {

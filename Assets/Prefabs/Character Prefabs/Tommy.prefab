@@ -94,17 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ddebc8b7a171f47ae22175512c8e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultConfig:
-    typeControlAttack: 1
-    typeWeapon: 1
-    damage: 0
-    criticalDamage: 0
-    fireRate: 0.62
-    criticalRate: 0
-  weaponName: 1
-  gunIndex: -1
-  currentBullet: 1000
-  bulletMax: 1000
+  weapon: {fileID: 11400000, guid: 865bee34b7eb8b94289d0e272acfa216, type: 2}
 --- !u!1 &2079534467
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,21 +189,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7d7ad0106b28148933eb49af3ff991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultConfig:
-    typeControlAttack: 1
-    typeWeapon: 2
-    damage: 1
-    criticalDamage: 1
-    fireRate: 0.3
-    criticalRate: 0
-  weaponName: 2
-  gunIndex: 0
-  currentBullet: 0
-  bulletMax: 120
+  weapon: {fileID: 11400000, guid: 94136a3c3ab8c3847a2a48bee6e4bece, type: 2}
   spawnPoint: {fileID: 3827576980937976874}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 464367988307332960, guid: c692a64be3bd1e147b7249377b75cef4,
+    type: 3}
   fxShot: {fileID: 90969092059679390}
-  fxBulletFall: {fileID: 0}
+  fxBulletFall: {fileID: 7774242874385637694, guid: 6b2b256fd8da3e744b4f5a4ee9cf9bec,
+    type: 3}
 --- !u!1 &1095789977210268
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,8 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386da234bd22a6c4aa616d61306835b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oneHandSprite: {fileID: 21300000, guid: 3383c3b1e948d734fbb2371382630c7f, type: 3}
-  twoHandSprite: {fileID: 21300000, guid: 5d7356e039d1b5d48b06ec34b4457624, type: 3}
+  _oneHandSprite: {fileID: 21300000, guid: 3383c3b1e948d734fbb2371382630c7f, type: 3}
+  _twoHandSprite: {fileID: 21300000, guid: 5d7356e039d1b5d48b06ec34b4457624, type: 3}
 --- !u!1 &1172807489490032
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,8 +591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386da234bd22a6c4aa616d61306835b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oneHandSprite: {fileID: 21300000, guid: 5a9a7cac49e75d84493eb9559895e531, type: 3}
-  twoHandSprite: {fileID: 21300000, guid: 3cce38d0e6290564485033f8e149e3af, type: 3}
+  _oneHandSprite: {fileID: 21300000, guid: 5a9a7cac49e75d84493eb9559895e531, type: 3}
+  _twoHandSprite: {fileID: 21300000, guid: 3cce38d0e6290564485033f8e149e3af, type: 3}
 --- !u!1 &1527514273999264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,8 +1069,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba9ae68f5cdfa042af2b3191d5e0581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponsUnlocked: []
-  totalWeapon:
+  _weaponsUnlocked: []
+  _totalWeapon:
   - {fileID: 1714520849597181843}
   - {fileID: 7335050395755822300}
   - {fileID: 3352161762237556264}
@@ -1097,7 +1079,6 @@ MonoBehaviour:
   - {fileID: 3139568270460215798}
   - {fileID: 1545201221618948334}
   - {fileID: 328416149844554542}
-  currentWeapon: {fileID: 0}
 --- !u!1 &1966007364148674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,21 +1317,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7d7ad0106b28148933eb49af3ff991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultConfig:
-    typeControlAttack: 1
-    typeWeapon: 3
-    damage: 3
-    criticalDamage: 3
-    fireRate: 0.3
-    criticalRate: 0
-  weaponName: 4
-  gunIndex: 2
-  currentBullet: 0
-  bulletMax: 20
+  weapon: {fileID: 11400000, guid: fb217402555e30942a3e37cbfe9064a4, type: 2}
   spawnPoint: {fileID: 3567649508987188124}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 464367988307332960, guid: c692a64be3bd1e147b7249377b75cef4,
+    type: 3}
   fxShot: {fileID: 176135504513567334}
-  fxBulletFall: {fileID: 0}
+  fxBulletFall: {fileID: 7774242874385637694, guid: 6b2b256fd8da3e744b4f5a4ee9cf9bec,
+    type: 3}
 --- !u!1 &2405425565873707031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,21 +1418,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7d7ad0106b28148933eb49af3ff991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultConfig:
-    typeControlAttack: 1
-    typeWeapon: 3
-    damage: 5
-    criticalDamage: 5
-    fireRate: 0.3
-    criticalRate: 0
-  weaponName: 6
-  gunIndex: 4
-  currentBullet: 0
-  bulletMax: 15
+  weapon: {fileID: 11400000, guid: d5b8ab2c9ba12c748a91cf1830415af0, type: 2}
   spawnPoint: {fileID: 3567649508987188124}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 464367988307332960, guid: c692a64be3bd1e147b7249377b75cef4,
+    type: 3}
   fxShot: {fileID: 176135504513567334}
-  fxBulletFall: {fileID: 0}
+  fxBulletFall: {fileID: 7774242874385637694, guid: 6b2b256fd8da3e744b4f5a4ee9cf9bec,
+    type: 3}
 --- !u!1 &3899783761235920169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,21 +1519,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7d7ad0106b28148933eb49af3ff991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultConfig:
-    typeControlAttack: 2
-    typeWeapon: 2
-    damage: 1
-    criticalDamage: 1
-    fireRate: 0.3
-    criticalRate: 0
-  weaponName: 3
-  gunIndex: 1
-  currentBullet: 0
-  bulletMax: 210
+  weapon: {fileID: 11400000, guid: 1b98bd41d23fd2c4ca69e81e34b1fd3d, type: 2}
   spawnPoint: {fileID: 3827576980937976874}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 464367988307332960, guid: c692a64be3bd1e147b7249377b75cef4,
+    type: 3}
   fxShot: {fileID: 90969092059679390}
-  fxBulletFall: {fileID: 0}
+  fxBulletFall: {fileID: 7774242874385637694, guid: 6b2b256fd8da3e744b4f5a4ee9cf9bec,
+    type: 3}
 --- !u!1 &4971284826907195126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,21 +1620,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7d7ad0106b28148933eb49af3ff991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultConfig:
-    typeControlAttack: 1
-    typeWeapon: 3
-    damage: 6
-    criticalDamage: 6
-    fireRate: 0.5
-    criticalRate: 0
-  weaponName: 7
-  gunIndex: 5
-  currentBullet: 0
-  bulletMax: 50
+  weapon: {fileID: 11400000, guid: 4ff52ccc36dccda43b7f70e895971fed, type: 2}
   spawnPoint: {fileID: 6489638039771402343}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 464367988307332960, guid: c692a64be3bd1e147b7249377b75cef4,
+    type: 3}
   fxShot: {fileID: 7543711376315547496}
-  fxBulletFall: {fileID: 0}
+  fxBulletFall: {fileID: 7774242874385637694, guid: 6b2b256fd8da3e744b4f5a4ee9cf9bec,
+    type: 3}
 --- !u!1 &5613111586481513444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,21 +1721,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7d7ad0106b28148933eb49af3ff991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultConfig:
-    typeControlAttack: 2
-    typeWeapon: 3
-    damage: 3
-    criticalDamage: 3
-    fireRate: 0.15
-    criticalRate: 0
-  weaponName: 5
-  gunIndex: 3
-  currentBullet: 0
-  bulletMax: 160
+  weapon: {fileID: 11400000, guid: 596b48bc907a8724d913d6bea9472dd3, type: 2}
   spawnPoint: {fileID: 3567649508987188124}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 464367988307332960, guid: c692a64be3bd1e147b7249377b75cef4,
+    type: 3}
   fxShot: {fileID: 176135504513567334}
-  fxBulletFall: {fileID: 0}
+  fxBulletFall: {fileID: 7774242874385637694, guid: 6b2b256fd8da3e744b4f5a4ee9cf9bec,
+    type: 3}
 --- !u!1 &5712493869089741801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,21 +1854,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7d7ad0106b28148933eb49af3ff991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultConfig:
-    typeControlAttack: 1
-    typeWeapon: 2
-    damage: 8
-    criticalDamage: 8
-    fireRate: 1
-    criticalRate: 0
-  weaponName: 8
-  gunIndex: 6
-  currentBullet: 0
-  bulletMax: 10
+  weapon: {fileID: 11400000, guid: 4b6e972abfbdd474cadff3df9b4d7174, type: 2}
   spawnPoint: {fileID: 3827576980937976874}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 4072962946179638256, guid: c166333edb3fa384fb7b7c2748a83729,
+    type: 3}
   fxShot: {fileID: 90969092059679390}
-  fxBulletFall: {fileID: 0}
+  fxBulletFall: {fileID: 7774242874385637694, guid: 6b2b256fd8da3e744b4f5a4ee9cf9bec,
+    type: 3}
 --- !u!1 &6637099756360702014
 GameObject:
   m_ObjectHideFlags: 0
