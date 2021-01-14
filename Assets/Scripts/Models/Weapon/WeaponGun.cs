@@ -4,15 +4,13 @@ using UnityEngine;
 
 public sealed class WeaponGun : WeaponBase
 {
-    public Transform spawnPoint;
-    public GameObject bulletPrefab;
-    public ParticleSystem fxShot;
-    public GameObject fxBulletFall;
+    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private ParticleSystem _fxShot;
 
-    private Collider2D fireCollider;
+    private Collider2D _fireCollider;
 
-    private WaitForSeconds waitTime = new WaitForSeconds(0.02f);
-    private WaitForSeconds fireColliderWait = new WaitForSeconds(0.02f);
+    private WaitForSeconds _waitTime = new WaitForSeconds(0.02f);
+    private WaitForSeconds _fireColliderWait = new WaitForSeconds(0.02f);
 
     private float _currentBullet;
 
@@ -20,27 +18,6 @@ public sealed class WeaponGun : WeaponBase
     {
         base.Awake();
         _currentBullet = weapon.maxBullet;
-    }
-
-    private void Start()
-    {
-        if (!GameplayController.Instance.isBulletAndFXCreated)
-        {
-            if (weapon.typeWeaponName != TypeWeaponName.Fire && weapon.typeWeaponName != TypeWeaponName.Rocket)
-            {
-                PoolObject.Instance.CreateBulletAndBulletFallFX(bulletPrefab, fxBulletFall, 100);
-                GameplayController.Instance.isBulletAndFXCreated = true;
-            }
-        }
-
-        if (!GameplayController.Instance.isRocketBulletCreated)
-        {
-            if (weapon.typeWeaponName == TypeWeaponName.Rocket)
-            {
-                PoolObject.Instance.CreateBulletRocket(bulletPrefab, 100);
-                GameplayController.Instance.isRocketBulletCreated = true;
-            }
-        }
     }
 
     public override void CallAttack()
@@ -66,7 +43,6 @@ public sealed class WeaponGun : WeaponBase
 
     protected override void ProcessAttack()
     {
-        //base.ProcessAttack();
         switch (weapon.typeWeaponName)
         {
             case TypeWeaponName.Pistol:
@@ -90,31 +66,32 @@ public sealed class WeaponGun : WeaponBase
             if (weapon.typeWeaponName != TypeWeaponName.Rocket)
             {
                 GameObject bulletFallFX
-                    = PoolObject.Instance.SpawnBulletFallFX(spawnPoint.transform.position, Quaternion.identity);
+                    = PoolObject.Instance.SpawnBulletFallFX(_spawnPoint.transform.position, Quaternion.identity);
                 bulletFallFX.transform.localScale
                     = (transform.root.eulerAngles.y > 1.0f) ? new Vector3(-1.0f, 1.0f, 1.0f) : new Vector3(1.0f, 1.0f, 1.0f);
                 StartCoroutine(WaitForShootEffect());
             }
-            PoolObject.Instance.SpawnBullet(spawnPoint.transform.position,
-                new Vector3(-transform.root.localScale.x, 0.0f, 0.0f), spawnPoint.rotation, weapon.typeWeaponName);
+            PoolObject.Instance.SpawnBullet(_spawnPoint.transform.position,
+                new Vector3(-transform.root.localScale.x, 0.0f, 0.0f), _spawnPoint.rotation, weapon.typeWeaponName, weapon);
         }
-        else
+        else if (weapon.typeWeaponName == TypeWeaponName.Fire)
         {
+            _fireCollider = _spawnPoint.GetComponent<BoxCollider2D>();
             StartCoroutine(ActiveFireCollider());
         }
     }
 
     private IEnumerator WaitForShootEffect()
     {
-        yield return waitTime;
-        fxShot.Play();
+        yield return _waitTime;
+        _fxShot.Play();
     }
 
     private IEnumerator ActiveFireCollider()
     {
-        //fireCollider.enabled = true;
-        fxShot.Play();
-        yield return fireColliderWait;
-        //fireCollider.enabled = false;
+        _fireCollider.enabled = true;
+        _fxShot.Play();
+        yield return _fireColliderWait;
+        _fireCollider.enabled = false;
     }
 }

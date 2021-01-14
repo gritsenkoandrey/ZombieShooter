@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-
+//not use
 public class GameplayController : MonoBehaviour
 {
     public static GameplayController Instance;

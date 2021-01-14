@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerHealth
+  - RocketMissile
+  - Enemy
+  - ZombieHealth
+  - Fence
+  - Bullet
+  - FireBullet
   layers:
   - Default
   - TransparentFX
@@ -15,8 +21,8 @@ TagManager:
   - 
   - 
   - Player
-  - 
-  - 
+  - Bullet
+  - ZombieHealth
   - 
   - 
   - 

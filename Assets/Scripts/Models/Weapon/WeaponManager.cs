@@ -13,11 +13,13 @@ public class WeaponManager : MonoBehaviour
     private PlayerAnimations _playerAnim;
     private bool _isShooting;
 
+    [SerializeField] private GameObject _meleeDamagePoint = null;
+
     private void Awake()
     {
         _playerAnim = GetComponent<PlayerAnimations>();
         LoadActiveWeapons();
-        _currentWeaponIndex = 1;
+        _currentWeaponIndex = (int)TypeWeaponName.Pistol;
     }
 
     private void Start()
@@ -30,8 +32,7 @@ public class WeaponManager : MonoBehaviour
 
     private void LoadActiveWeapons()
     {
-        _weaponsUnlocked.Add(_totalWeapon[0]);
-        for (int i = 1; i < _totalWeapon.Length; i++)
+        for (int i = 0; i < _totalWeapon.Length; i++)
         {
             _weaponsUnlocked.Add(_totalWeapon[i]);
         }
@@ -89,5 +90,17 @@ public class WeaponManager : MonoBehaviour
     public void ResetAttack()
     {
         _isShooting = false;
+    }
+
+    private void AllowCollisionDetection()
+    {
+        print("Allow");
+        _meleeDamagePoint.SetActive(true);
+    }
+
+    private void DenyCollisionDetection()
+    {
+        print("Deny");
+        _meleeDamagePoint.SetActive(false);
     }
 }
