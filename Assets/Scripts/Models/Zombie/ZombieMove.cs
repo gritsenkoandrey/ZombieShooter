@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-public class ZombieMove : MonoBehaviour
+public class ZombieMove : ZombieBase
 {
     private Vector3 _tempPos;
     private Vector3 _tempScale;

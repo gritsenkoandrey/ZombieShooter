@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-public class ZombieController : MonoBehaviour
+public class ZombieController : ZombieBase
 {
     private ZombieMove _zombieMove;
     private ZombieAnimation _zombieAnimation;
@@ -16,6 +16,9 @@ public class ZombieController : MonoBehaviour
     [SerializeField] private GameObject _damageCollider = null;
     [SerializeField] private GameObject[] _fxDead = null;
     [SerializeField] private GameObject _coinCollectable = null;
+    //[SerializeField] private TypeTargetZombie _typeTargetZombie = TypeTargetZombie.NONE;
+
+    private GameObject[] _fences;
 
     private float _timerAttack;
 
@@ -23,9 +26,8 @@ public class ZombieController : MonoBehaviour
     {
         _zombieMove = GetComponent<ZombieMove>();
         _zombieAnimation = GetComponent<ZombieAnimation>();
-        _targetTransform = GameObject.FindGameObjectWithTag(TagManager.GetTag(TypeTag.PLAYER)).transform;
-
         _zombieIsAlive = true;
+        ChooseTarget();
     }
 
     private void Update()
@@ -80,7 +82,7 @@ public class ZombieController : MonoBehaviour
         {
             if ((_targetTransform.position - transform.position).sqrMagnitude > _distanceAttack)
             {
-                //_zombieMove.MoveZombie(_targetTransform);
+                _zombieMove.MoveZombie(_targetTransform);
             }
             else
             {
@@ -127,5 +129,33 @@ public class ZombieController : MonoBehaviour
         _zombieIsAlive = false;
         _zombieAnimation.ZombieDeadAnimation();
         StartCoroutine(DeactivateZombie());
+    }
+
+    //use in Animation AttackMeleeWeapon
+    private void ActivateDamagePoint()
+    {
+        _damageCollider.SetActive(true);
+    }
+
+    private void DeactivateDamagePoint()
+    {
+        _damageCollider.SetActive(false);
+    }
+
+    private void ChooseTarget()
+    {
+        if (LevelController.Instanse.typeTargetZombie == TypeTargetZombie.PLAYER)
+        {
+            _targetTransform = GameObject.FindGameObjectWithTag(TagManager.GetTag(TypeTag.PLAYER)).transform;
+        }
+        else if (LevelController.Instanse.typeTargetZombie == TypeTargetZombie.FENCE)
+        {
+            _fences = GameObject.FindGameObjectsWithTag(TagManager.GetTag(TypeTag.FENCE));
+            _targetTransform = _fences[Random.Range(0, _fences.Length)].transform;
+        }
+        else
+        {
+            return;
+        }
     }
 }

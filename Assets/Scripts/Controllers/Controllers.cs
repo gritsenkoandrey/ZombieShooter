@@ -12,11 +12,13 @@ public sealed class Controllers : IInitialization, ICleanUp
 
     public Controllers()
     {
-        _initializations = new IInitialization[1];
+        _initializations = new IInitialization[2];
         _initializations[0] = new InputController();
+        _initializations[1] = new LevelController();
 
-        _executeControllers = new IExecute[1];
+        _executeControllers = new IExecute[2];
         _executeControllers[0] = new InputController();
+        _executeControllers[1] = new LevelController();
 
         _cleanUps = new ICleanUp[0];
     }

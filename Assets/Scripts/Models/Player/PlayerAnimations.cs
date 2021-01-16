@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-public class PlayerAnimations : MonoBehaviour
+public class PlayerAnimations : PlayerBase
 {
     private Animator _animator;
 

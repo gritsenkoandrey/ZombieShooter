@@ -12,7 +12,7 @@ public sealed class GameController : MonoBehaviour
         Cleaner();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         for (var i = 0; i < _controllers.Length; i++)
         {

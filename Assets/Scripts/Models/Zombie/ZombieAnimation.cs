@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-public class ZombieAnimation : MonoBehaviour
+public class ZombieAnimation : ZombieBase
 {
     private Animator _animator;
 

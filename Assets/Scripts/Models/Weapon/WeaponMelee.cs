@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-public sealed class WeaponMelee : WeaponBase
+public class WeaponMelee : WeaponBase
 {
     public override void CallAttack()
     {

@@ -877,7 +877,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4400038500744942}
   - component: {fileID: 61088089864564168}
-  m_Layer: 0
+  - component: {fileID: 6213371963665710312}
+  m_Layer: 11
   m_Name: Health
   m_TagString: PlayerHealth
   m_Icon: {fileID: 0}
@@ -924,6 +925,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.3}
   m_EdgeRadius: 0
+--- !u!114 &6213371963665710312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874862284142052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4ae757c2238da4684d231e74250edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 10
+  _bloodFX:
+  - {fileID: 4315347874568240034}
+  - {fileID: 2819619219472265209}
 --- !u!1 &1940654426450688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,9 +1502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf1c6f9f14949409a380027759c51f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colLayer:
-    serializedVersion: 2
-    m_Bits: 1024
+  weapon: {fileID: 11400000, guid: 865bee34b7eb8b94289d0e272acfa216, type: 2}
   _radius: 0.25
 --- !u!1 &3899783761235920169
 GameObject:
@@ -2251,8 +2266,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 198306117329331272, guid: 8f5ad6b0969864994977e1cb27047e1b,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198468811995080224, guid: 8f5ad6b0969864994977e1cb27047e1b,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5ad6b0969864994977e1cb27047e1b, type: 3}
+--- !u!1 &2819619219472265209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1343858734372316, guid: 8f5ad6b0969864994977e1cb27047e1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2820813053052828197}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2822297378419149373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4321106329546776, guid: 8f5ad6b0969864994977e1cb27047e1b,
@@ -2318,8 +2349,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 198119409567215138, guid: 5fabbaca22b994e98951649923789a4a,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198625068897236100, guid: 5fabbaca22b994e98951649923789a4a,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fabbaca22b994e98951649923789a4a, type: 3}
+--- !u!1 &4315347874568240034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1469632531411458, guid: 5fabbaca22b994e98951649923789a4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4316148941991987616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4320924048312093646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4797302846358126, guid: 5fabbaca22b994e98951649923789a4a,

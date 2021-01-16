@@ -109,11 +109,6 @@ public class PoolObject : MonoBehaviour
                 }
             }
         }
-        else if (weaponName == TypeWeaponName.Fire)
-        {
-            //todo
-            return;
-        }
         else if (weaponName == TypeWeaponName.Rocket)
         {
             for (int i = 0; i < _bulletRocketPrefabs.Count; i++)

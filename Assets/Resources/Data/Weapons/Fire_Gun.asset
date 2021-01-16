@@ -15,8 +15,8 @@ MonoBehaviour:
   typeWeaponName: 6
   typeControlAttack: 0
   typeWeapon: 2
-  damage: 6
-  criticalDamage: 6
+  damage: 10
+  criticalDamage: 10
   fireRate: 0.5
   criticalRate: 0
   gunIndex: 5

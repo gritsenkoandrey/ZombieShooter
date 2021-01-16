@@ -34324,7 +34324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombieHealth: 10
-  _damageCollider: {fileID: 0}
+  _damageCollider: {fileID: 1852009596050652}
   _fxDead:
   - {fileID: 178502}
   - {fileID: 191432}
@@ -48960,6 +48960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4640115041625994}
+  - component: {fileID: 7102979910384002640}
   m_Layer: 0
   m_Name: Damage Point
   m_TagString: Untagged
@@ -48981,3 +48982,17 @@ Transform:
   m_Father: {fileID: 495206}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7102979910384002640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852009596050652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30160e0356a198742b3db75ae523d97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 1
+  _damage: 3

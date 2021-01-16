@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-public class PlayerArmController : MonoBehaviour
+public class PlayerArmController : PlayerBase
 {
     [SerializeField] private Sprite _oneHandSprite;
     [SerializeField] private Sprite _twoHandSprite;
