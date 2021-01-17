@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-public class InputController: IExecute, IInitialization
+public class InputController: IExecute, IInitialization, IFixExecute
 {
     private PlayerData _playerData;
     private Vector2 _input;
@@ -23,15 +23,10 @@ public class InputController: IExecute, IInitialization
         canShoot = true;
     }
 
-    public void Execute()
-    {
 #if UNITY_STANDALONE || UNITY_WEBGL || UNITY_EDITOR || UNITY_WSA
 
-        _input.x = Input.GetAxis(AxisManager.HORIZONTAL);
-        _input.y = Input.GetAxis(AxisManager.VERTICAL);
-
-        _playerData.PlayerMove.Execute(_input);
-
+    public void Execute()
+    {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             _weaponManager.SwitchWeapon();
@@ -51,11 +46,18 @@ public class InputController: IExecute, IInitialization
         {
             _weaponManager.Attack();
         }
+    }
 
-#endif
+    public void FixExecute()
+    {
+        _input.x = Input.GetAxis(AxisManager.HORIZONTAL);
+        _input.y = Input.GetAxis(AxisManager.VERTICAL);
+
+        _playerData.PlayerMove.Execute(_input);
+    }
 
 #if UNITY_IOS || UNITY_ANDROID
 
 #endif
-    }
+#endif
 }

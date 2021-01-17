@@ -2602,7 +2602,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2618,18 +2617,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dbd648e835daee42bd1459e01429ef9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -8192,7 +8179,7 @@ PrefabInstance:
     - target: {fileID: 9193579146377338843, guid: bafbe9797ed56c340918a42d596ea005,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bafbe9797ed56c340918a42d596ea005, type: 3}
@@ -9262,7 +9249,7 @@ PrefabInstance:
     - target: {fileID: 9193579146377338843, guid: bafbe9797ed56c340918a42d596ea005,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bafbe9797ed56c340918a42d596ea005, type: 3}
@@ -9808,6 +9795,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence
       objectReference: {fileID: 0}
+    - target: {fileID: 9193579146377338843, guid: bafbe9797ed56c340918a42d596ea005,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bafbe9797ed56c340918a42d596ea005, type: 3}
 --- !u!1001 &7938103521459838793
@@ -9823,7 +9815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 184972, guid: 13c9a6f4002c04238b8cb1551b68a561, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 463194, guid: 13c9a6f4002c04238b8cb1551b68a561, type: 3}
       propertyPath: m_LocalPosition.x

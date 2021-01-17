@@ -16,7 +16,6 @@ public class ZombieController : ZombieBase
     [SerializeField] private GameObject _damageCollider = null;
     [SerializeField] private GameObject[] _fxDead = null;
     [SerializeField] private GameObject _coinCollectable = null;
-    //[SerializeField] private TypeTargetZombie _typeTargetZombie = TypeTargetZombie.NONE;
 
     private GameObject[] _fences;
 
