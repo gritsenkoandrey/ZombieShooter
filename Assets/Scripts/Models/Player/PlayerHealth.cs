@@ -3,7 +3,7 @@
 
 public class PlayerHealth : PlayerBase
 {
-    [SerializeField] private int _health = 100;
+    private int _health;
     [SerializeField] private GameObject[] _bloodFX = null;
     private PlayerAnimations _playerAnim;
 
@@ -12,11 +12,13 @@ public class PlayerHealth : PlayerBase
     private void Awake()
     {
         _playerAnim = GetComponentInParent<PlayerAnimations>();
+        _health = (int)Data.Instance.PlayerData.GetHealth();
     }
 
     public void DealDamage(int damage)
     {
         Health -= damage;
+        LevelController.Instanse.PlayerLifeCounter(Health);
         _playerAnim.PlayerHurtAnimation();
 
         if (Health <= 0)

@@ -3,8 +3,8 @@
 
 public class PlayerArmController : PlayerBase
 {
-    [SerializeField] private Sprite _oneHandSprite;
-    [SerializeField] private Sprite _twoHandSprite;
+    [SerializeField] private Sprite _oneHandSprite = null;
+    [SerializeField] private Sprite _twoHandSprite = null;
 
     private SpriteRenderer _spriteRenderer;
 

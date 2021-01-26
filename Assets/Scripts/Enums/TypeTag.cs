@@ -10,5 +10,7 @@
     FIRE_BULLET    = 7,
     ZOMBIE_HEALTH  = 8,
     MELEE_WEAPON   = 9,
-    COIN           = 10
+    COIN           = 10,
+    COUNTER        = 11,
+    LIFE_FULL      = 12
 }

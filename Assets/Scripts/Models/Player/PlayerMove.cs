@@ -10,14 +10,14 @@ public sealed class PlayerMove : PlayerBase
     private Vector2 _tempScale;
 
     private Vector2 _tempPos;
-    private readonly float _maxPosY = 0.5f;
-    private readonly float _minPosY = -3.4f;
-    private readonly float _maxPosX = 153.0f;
-    private readonly float _minPosX = -13.0f;
+    private float _maxPosY;
+    private float _minPosY;
+    private float _maxPosX;
+    private float _minPosX;
 
     private void Awake()
     {
-        _playerData = Data.Instance.PlayerData;
+        InitializePlayerData();
 
         _myBody = GetComponent<Rigidbody2D>();
         _playerAnimations = GetComponent<PlayerAnimations>();
@@ -111,5 +111,14 @@ public sealed class PlayerMove : PlayerBase
         {
             _playerAnimations.PlayerRunAnimation(false);
         }
+    }
+
+    private void InitializePlayerData()
+    {
+        _playerData = Data.Instance.PlayerData;
+        _maxPosY = _playerData.maxPosY;
+        _minPosY = _playerData.minPosY;
+        _maxPosX = _playerData.maxPosX;
+        _minPosX = _playerData.minPosX;
     }
 }

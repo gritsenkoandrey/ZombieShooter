@@ -96,7 +96,8 @@ public class ZombieController : ZombieBase
     private IEnumerator DeactivateZombie()
     {
         yield return new WaitForSeconds(2.0f);
-
+        //LevelController.Instanse.ZombieDied();
+        EventBus.RaiseEvent<IEventBus>(h => h.Call());
         //Instantiate(_coinCollectable, transform.position, Quaternion.identity);
 
         gameObject.SetActive(false);

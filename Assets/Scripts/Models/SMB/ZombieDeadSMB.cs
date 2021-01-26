@@ -3,7 +3,7 @@
 
 public class ZombieDeadSMB : StateMachineBehaviour
 {
-    [SerializeField] private int _index;
+    [SerializeField] private int _index = 0;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

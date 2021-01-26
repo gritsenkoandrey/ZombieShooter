@@ -18,7 +18,9 @@ public static class TagManager
             {TypeTag.FIRE_BULLET, "FireBullet" },
             {TypeTag.ZOMBIE_HEALTH, "ZombieHealth" },
             {TypeTag.MELEE_WEAPON, "MeleeWeapon" },
-            {TypeTag.COIN, "Coin" }
+            {TypeTag.COIN, "Coin" },
+            {TypeTag.COUNTER, "Counter" },
+            {TypeTag.LIFE_FULL, "LifeFull" }
         };
     }
 

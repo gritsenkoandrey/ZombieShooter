@@ -4,8 +4,8 @@ using UnityEngine;
 
 public sealed class WeaponGun : WeaponBase
 {
-    [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private ParticleSystem _fxShot;
+    [SerializeField] private Transform _spawnPoint = null;
+    [SerializeField] private ParticleSystem _fxShot = null;
 
     private Collider2D _fireCollider;
 

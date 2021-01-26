@@ -3,7 +3,7 @@
 
 public class SetStateSMB : StateMachineBehaviour
 {
-    [SerializeField] private int _numAnimRandom;
+    [SerializeField] private int _numAnimRandom = 0;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

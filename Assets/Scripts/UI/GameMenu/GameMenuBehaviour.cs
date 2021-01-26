@@ -5,17 +5,22 @@ using UnityEngine.UI;
 public class GameMenuBehaviour : BaseUI
 {
     [SerializeField] private Button _pauseButton = null;
+    [SerializeField] private Button _resumeButton = null;
+    [SerializeField] private Button _quitButton = null;
+
     [SerializeField] private GameObject _pausePanel = null;
     [SerializeField] private GameObject _gameOverPanel = null;
 
     private void OnEnable()
     {
-        //Add Listener
+        _pauseButton.onClick.AddListener(PauseGame);
+        _resumeButton.onClick.AddListener(ResumeGame);
     }
 
     private void OnDisable()
     {
-        //Romove Listener
+        _pauseButton.onClick.RemoveListener(PauseGame);
+        _resumeButton.onClick.RemoveListener(ResumeGame);
     }
 
     public override void Hide()
@@ -28,5 +33,17 @@ public class GameMenuBehaviour : BaseUI
     {
         gameObject.SetActive(true);
         ShowUI.Invoke();
+    }
+
+    private void PauseGame()
+    {
+        _pausePanel.SetActive(true);
+        Services.Instance.TimeService.SetTimeScale(0.0f);
+    }
+
+    private void ResumeGame()
+    {
+        _pausePanel.SetActive(false);
+        Services.Instance.TimeService.SetTimeScale(1.0f);
     }
 }

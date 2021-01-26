@@ -11,6 +11,8 @@ TagManager:
   - Fence
   - Bullet
   - FireBullet
+  - Counter
+  - LifeFull
   layers:
   - Default
   - TransparentFX

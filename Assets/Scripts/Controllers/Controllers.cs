@@ -6,7 +6,6 @@ public sealed class Controllers : IInitialization, ICleanUp
     private readonly IExecute[] _executeControllers;
     private readonly IFixExecute[] _fixExecuteControllers;
     private readonly ILateExecute[] _lateExecuteControllers;
-
     private readonly ICleanUp[] _cleanUps;
     private readonly IInitialization[] _initializations;
 
@@ -20,14 +19,14 @@ public sealed class Controllers : IInitialization, ICleanUp
 
     public Controllers()
     {
-        _initializations = new IInitialization[3];
+        _initializations = new IInitialization[2];
         _initializations[0] = new InputController();
-        _initializations[1] = new LevelController();
-        _initializations[2] = new CameraController();
+        _initializations[1] = new CameraController();
 
-        _executeControllers = new IExecute[2];
+        _executeControllers = new IExecute[3];
         _executeControllers[0] = new InputController();
-        _executeControllers[1] = new LevelController();
+        _executeControllers[1] = new TimeRemainingController();
+        _executeControllers[2] = new LevelController();
 
         _fixExecuteControllers = new IFixExecute[1];
         _fixExecuteControllers[0] = new InputController();
