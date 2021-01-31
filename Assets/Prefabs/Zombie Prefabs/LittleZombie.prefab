@@ -9758,6 +9758,7 @@ MonoBehaviour:
   - {fileID: 1294077092398870}
   - {fileID: 1240282190124786}
   - {fileID: 1294077092398870}
+  _coin: {fileID: 4055401059539110749, guid: 16d1d1d9159baf441bb505395a2442b9, type: 3}
 --- !u!1 &1181210880420030
 GameObject:
   m_ObjectHideFlags: 0

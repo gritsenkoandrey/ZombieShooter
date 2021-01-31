@@ -4,7 +4,7 @@ using UnityEngine;
 
 public sealed class LevelController : BaseController, IExecute, IInitialization, IEnemyDie, IStartLevel
 {
-    public int coinCount;
+    //public int coinCount;
 
     private int _zombieCount;
     private int _stepCount;

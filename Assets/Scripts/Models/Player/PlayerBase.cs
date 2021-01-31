@@ -8,7 +8,7 @@ public abstract class PlayerBase : MonoBehaviour
     protected PlayerMove playerMove;
     protected PlayerData playerData;
 
-    protected bool isPlayerAlive;
+    protected static bool isPlayerAlive;
 
     protected virtual void Awake()
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 [RequireComponent(typeof(ZombieAnimation))]
@@ -11,6 +12,7 @@ public sealed class ZombieHealth : ZombieBase
 
     [SerializeField] private GameObject[] _fxDead = null;
     private ParticleSystem _particle;
+    [SerializeField] private Colectable _coin = null;
 
     private TimeRemaining _timeRemainingDeactivateZombie;
     private readonly float _timeToDeactivateZombie = 2.0f;
@@ -65,6 +67,10 @@ public sealed class ZombieHealth : ZombieBase
     private void DeactivateZombie()
     {
         EventBus.RaiseEvent<IEnemyDie>(h => h.EnemyDie());
+        if (Random.Range(0, 10) > 6)
+        {
+            Instantiate(_coin, transform.position, Quaternion.identity);
+        }
         _timeRemainingDeactivateZombie.RemoveTimeRemaining();
         gameObject.SetActive(false);
     }

@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586b08a5c5c77494bb3e16d5ae56385d, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _speed: 1.5
+  _tommy: {fileID: 1940654426450688, guid: c207a50ddfe3349528cb672f93107b7c, type: 3}
+  _marry: {fileID: 2326717307088324436, guid: 0d7719085f75e1a4b8c949ee34825053, type: 3}
+  _healthTommy: 80
+  _healthMarry: 60
+  _speedTommy: 1.5
+  _speedMarry: 2.5
   maxPosY: 0.5
   minPosY: -3.4
   maxPosX: 153

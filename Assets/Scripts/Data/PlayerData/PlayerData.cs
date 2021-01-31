@@ -4,13 +4,18 @@
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Data/Player/PlayerData")]
 public sealed class PlayerData : ScriptableObject
 {
-    [Header("PlayerHealth")]
+    [SerializeField] private GameObject _tommy = null;
+    [SerializeField] private GameObject _marry = null;
 
-    [SerializeField] private float _maxHealth = 100.0f;
+    [Header("PlayerHealth")]
+    private float _health;
+    [SerializeField] private float _healthTommy = 80.0f;
+    [SerializeField] private float _healthMarry = 60.0f;
 
     [Header("PlayerMove")]
-
-    [SerializeField] private float _speed = 1.5f;
+    private float _speed;
+    [SerializeField] private float _speedTommy = 1.5f;
+    [SerializeField] private float _speedMarry = 2.5f;
 
     public float maxPosY = 0.5f;
     public float minPosY = -3.4f;
@@ -32,6 +37,20 @@ public sealed class PlayerData : ScriptableObject
 
     public float GetHealth()
     {
-        return _maxHealth;
+        return _health;
+    }
+
+    public void SpawnTommy()
+    {
+        _speed = _speedTommy;
+        _health = _healthTommy;
+        Instantiate(_tommy);
+    }
+
+    public void SpawnMarry()
+    {
+        _speed = _speedMarry;
+        _health = _healthMarry;
+        Instantiate(_marry);
     }
 }

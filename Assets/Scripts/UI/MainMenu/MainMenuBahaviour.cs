@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class MainMenuBahaviour : BaseUI
 {
     [SerializeField] private GameObject _characterSelectPanel = null;
+
     [SerializeField] private Button _openCharacterSelectPanel = null;
     [SerializeField] private Button _closeCharacterSelectPanel = null;
 
@@ -12,6 +13,11 @@ public class MainMenuBahaviour : BaseUI
     [SerializeField] private Button _missionTwoButton = null;
     [SerializeField] private Button _missionThreeButton = null;
     [SerializeField] private Button _missionFourButton = null;
+
+    [SerializeField] private Button _selectTommyButton = null;
+    [SerializeField] private Button _selectMarryButton = null;
+
+    private bool _isCharacterSelect = false;
 
     private void OnEnable()
     {
@@ -22,6 +28,9 @@ public class MainMenuBahaviour : BaseUI
         _missionTwoButton.onClick.AddListener(StartMissionTwo);
         _missionThreeButton.onClick.AddListener(StartMissionThree);
         _missionFourButton.onClick.AddListener(StartMissionFour);
+
+        _selectTommyButton.onClick.AddListener(SelectTommy);
+        _selectMarryButton.onClick.AddListener(SelectMerry);
     }
 
     private void OnDisable()
@@ -33,6 +42,9 @@ public class MainMenuBahaviour : BaseUI
         _missionTwoButton.onClick.RemoveListener(StartMissionTwo);
         _missionThreeButton.onClick.RemoveListener(StartMissionThree);
         _missionFourButton.onClick.RemoveListener(StartMissionFour);
+
+        _selectTommyButton.onClick.RemoveListener(SelectTommy);
+        _selectMarryButton.onClick.RemoveListener(SelectMerry);
     }
 
     public override void Hide()
@@ -59,30 +71,42 @@ public class MainMenuBahaviour : BaseUI
 
     private void StartMissionOne()
     {
-        Data.Instance.LevelData.typeGameGoal = TypeGameGoal.KILL_ZOMBIE;
-        Data.Instance.LevelData.typeTargetZombie = TypeTargetZombie.PLAYER;
-        Next();
+        if (_isCharacterSelect)
+        {
+            Data.Instance.LevelData.typeGameGoal = TypeGameGoal.KILL_ZOMBIE;
+            Data.Instance.LevelData.typeTargetZombie = TypeTargetZombie.PLAYER;
+            Next();
+        }
     }
 
     private void StartMissionTwo()
     {
-        Data.Instance.LevelData.typeGameGoal = TypeGameGoal.DEFEND_FENCE;
-        Data.Instance.LevelData.typeTargetZombie = TypeTargetZombie.FENCE;
-        Next();
+        if (_isCharacterSelect)
+        {
+            Data.Instance.LevelData.typeGameGoal = TypeGameGoal.DEFEND_FENCE;
+            Data.Instance.LevelData.typeTargetZombie = TypeTargetZombie.FENCE;
+            Next();
+        }
     }
 
     private void StartMissionThree()
     {
-        Data.Instance.LevelData.typeGameGoal = TypeGameGoal.WALK_TO_GOAL_STEPS;
-        Data.Instance.LevelData.typeTargetZombie = TypeTargetZombie.PLAYER;
-        Next();
+        if (_isCharacterSelect)
+        {
+            Data.Instance.LevelData.typeGameGoal = TypeGameGoal.WALK_TO_GOAL_STEPS;
+            Data.Instance.LevelData.typeTargetZombie = TypeTargetZombie.PLAYER;
+            Next();
+        }
     }
 
     private void StartMissionFour()
     {
-        Data.Instance.LevelData.typeGameGoal = TypeGameGoal.TIMER_COUNTDOWN;
-        Data.Instance.LevelData.typeTargetZombie = TypeTargetZombie.PLAYER;
-        Next();
+        if (_isCharacterSelect)
+        {
+            Data.Instance.LevelData.typeGameGoal = TypeGameGoal.TIMER_COUNTDOWN;
+            Data.Instance.LevelData.typeTargetZombie = TypeTargetZombie.PLAYER;
+            Next();
+        }
     }
 
     private void Next()
@@ -90,5 +114,27 @@ public class MainMenuBahaviour : BaseUI
         Hide();
         EventBus.RaiseEvent<IStartLevel>(h => h.StartLevel());
         EventBus.RaiseEvent<ISpawnZombie>(h => h.SpawnZombie());
+    }
+
+    private void SelectTommy()
+    {
+        if (!_isCharacterSelect)
+        {
+            Data.Instance.PlayerData.SpawnTommy();
+            EventBus.RaiseEvent<IInitializationPlayer>(h => h.InitializationPlayer());
+            _isCharacterSelect = true;
+            CloseCharacterSelectPanel();
+        }
+    }
+
+    private void SelectMerry()
+    {
+        if (!_isCharacterSelect)
+        {
+            Data.Instance.PlayerData.SpawnMarry();
+            EventBus.RaiseEvent<IInitializationPlayer>(h => h.InitializationPlayer());
+            _isCharacterSelect = true;
+            CloseCharacterSelectPanel();
+        }
     }
 }

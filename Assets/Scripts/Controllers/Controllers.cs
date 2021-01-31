@@ -19,10 +19,7 @@ public sealed class Controllers : IInitialization, ICleanUp
 
     public Controllers()
     {
-        _initializations = new IInitialization[2];
-        _initializations[0] = new InputController();
-        _initializations[1] = new CameraController();
-        //_initializations[2] = new ZombieSpawnController();
+        _initializations = new IInitialization[0];
 
         _executeControllers = new IExecute[4];
         _executeControllers[0] = new InputController();

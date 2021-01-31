@@ -13,6 +13,7 @@ TagManager:
   - FireBullet
   - Counter
   - LifeFull
+  - Coin
   layers:
   - Default
   - TransparentFX

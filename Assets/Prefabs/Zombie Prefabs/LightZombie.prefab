@@ -196,6 +196,7 @@ MonoBehaviour:
   - {fileID: 131304}
   - {fileID: 166776}
   - {fileID: 131304}
+  _coin: {fileID: 4055401059539110749, guid: 16d1d1d9159baf441bb505395a2442b9, type: 3}
 --- !u!1 &111236
 GameObject:
   m_ObjectHideFlags: 0
