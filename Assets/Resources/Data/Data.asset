@@ -15,3 +15,4 @@ MonoBehaviour:
   _playerDataPath: PlayerData
   _weaponsDataPath: WeaponsData
   _levelDataPath: LevelData
+  _zombieDataPath: ZombieData

@@ -22,7 +22,7 @@ public class WeaponMeleeDamage : WeaponMelee
             {
                 if (_colliders[i].CompareTag(TagManager.GetTag(TypeTag.ZOMBIE_HEALTH)))
                 {
-                    _colliders[i].transform.root.GetComponent<ZombieController>().DealDamage(weapon.damage);
+                    _colliders[i].transform.root.GetComponent<ZombieHealth>().DealDamage(weapon.damage);
                     //after one lucky hit to disable the collider
                     gameObject.SetActive(false);
                 }

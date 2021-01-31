@@ -8,8 +8,9 @@ public sealed class GameController : MonoBehaviour
     private void Awake()
     {
         _controllers = new Controllers();
-        Initialization();
         Cleaner();
+        Initialization();
+        Services.Instance.CameraServices.SetCamera(Camera.main);
     }
 
     private void Update()

@@ -3,34 +3,39 @@
 
 public sealed class PlayerMove : PlayerBase
 {
-    private PlayerData _playerData;
-    private PlayerAnimations _playerAnimations;
-
     private Rigidbody2D _myBody;
     private Vector2 _tempScale;
-
     private Vector2 _tempPos;
     private float _maxPosY;
     private float _minPosY;
     private float _maxPosX;
     private float _minPosX;
 
-    private void Awake()
+    protected override void Awake()
     {
-        InitializePlayerData();
+        base.Awake();
 
+        InitializePlayerMoveData();
+        playerAnimations = GetComponent<PlayerAnimations>();
         _myBody = GetComponent<Rigidbody2D>();
-        _playerAnimations = GetComponent<PlayerAnimations>();
     }
 
-    public void Execute(Vector2 dir)
+    public override void Execute(Vector2 dir)
     {
-        if (!IsPlayerDead)
+        if (isPlayerAlive)
         {
             Move(dir);
             Flip(dir);
             Animation();
         }
+    }
+
+    private void InitializePlayerMoveData()
+    {
+        _maxPosY = playerData.maxPosY;
+        _minPosY = playerData.minPosY;
+        _maxPosX = playerData.maxPosX;
+        _minPosX = playerData.minPosX;
     }
 
     private void Move(Vector2 dir)
@@ -39,7 +44,7 @@ public sealed class PlayerMove : PlayerBase
 
         if (dir.x > 0)
         {
-            _myBody.velocity = new Vector2(_playerData.GetSpeed(), _myBody.velocity.y);
+            _myBody.velocity = new Vector2(playerData.GetSpeed(), _myBody.velocity.y);
 
             if (_tempPos.x > _maxPosX)
             {
@@ -48,7 +53,7 @@ public sealed class PlayerMove : PlayerBase
         }
         else if (dir.x < 0)
         {
-            _myBody.velocity = new Vector2(-_playerData.GetSpeed(), _myBody.velocity.y);
+            _myBody.velocity = new Vector2(-playerData.GetSpeed(), _myBody.velocity.y);
 
             if (_tempPos.x < _minPosX)
             {
@@ -62,7 +67,7 @@ public sealed class PlayerMove : PlayerBase
 
         if (dir.y > 0)
         {
-            _myBody.velocity = new Vector2(_myBody.velocity.x, _playerData.GetSpeed());
+            _myBody.velocity = new Vector2(_myBody.velocity.x, playerData.GetSpeed());
 
             if (_tempPos.y > _maxPosY)
             {
@@ -71,7 +76,7 @@ public sealed class PlayerMove : PlayerBase
         }
         else if (dir.y < 0)
         {
-            _myBody.velocity = new Vector2(_myBody.velocity.x, -_playerData.GetSpeed());
+            _myBody.velocity = new Vector2(_myBody.velocity.x, - playerData.GetSpeed());
 
             if (_tempPos.y < _minPosY)
             {
@@ -105,20 +110,11 @@ public sealed class PlayerMove : PlayerBase
     {
         if (_myBody.velocity.x != 0 || _myBody.velocity.y != 0)
         {
-            _playerAnimations.PlayerRunAnimation(true);
+            playerAnimations.PlayerRunAnimation(true);
         }
         else if (_myBody.velocity.x == 0 && _myBody.velocity.y == 0)
         {
-            _playerAnimations.PlayerRunAnimation(false);
+            playerAnimations.PlayerRunAnimation(false);
         }
-    }
-
-    private void InitializePlayerData()
-    {
-        _playerData = Data.Instance.PlayerData;
-        _maxPosY = _playerData.maxPosY;
-        _minPosY = _playerData.minPosY;
-        _maxPosX = _playerData.maxPosX;
-        _minPosX = _playerData.minPosX;
     }
 }

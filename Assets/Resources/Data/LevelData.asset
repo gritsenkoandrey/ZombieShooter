@@ -15,7 +15,7 @@ MonoBehaviour:
   zombieCount: 20
   stepCount: 100
   timerCount: 50
-  typeGameGoal: 2
+  typeGameGoal: 1
   typeTargetZombie: 1
   levelOneUI: {fileID: 6122041395179035219, guid: 4cec657ef8a2f4f47be01344edaf0660,
     type: 3}

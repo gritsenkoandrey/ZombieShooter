@@ -1,30 +1,37 @@
 ﻿using UnityEngine;
 
 
-public class ZombieMove : ZombieBase
+public sealed class ZombieMove : ZombieBase
 {
+    [SerializeField] private Zombie _zombie = null;
+
     private Vector3 _tempPos;
     private Vector3 _tempScale;
-    private float _correctionDis = 0.25f;
+    private readonly float _correctionDis = 0.25f;
+    private float _speed;
 
-    private float _speed = 1.0f;
-
-    public void MoveZombie(Transform targetTransform)
+    protected override void Awake()
     {
-        Flip(targetTransform);
-        Move(targetTransform);
+        base.Awake();
+        _speed = _zombie.moveSpeed;
     }
 
-    private void Flip(Transform targetTransform)
+    public void MoveZombie(Transform target)
+    {
+        Flip(target);
+        Move(target);
+    }
+
+    private void Flip(Transform target)
     {
         _tempPos = transform.position;
         _tempScale = transform.localScale;
 
-        if (targetTransform.position.x > _tempPos.x + _correctionDis)
+        if (target.position.x > _tempPos.x + _correctionDis)
         {
             _tempScale.x = -1.0f;
         }
-        else if (targetTransform.position.x < _tempPos.x - _correctionDis)
+        else if (target.position.x < _tempPos.x - _correctionDis)
         {
             _tempScale.x = 1.0f;
         }
@@ -32,9 +39,9 @@ public class ZombieMove : ZombieBase
         transform.localScale = _tempScale;
     }
 
-    private void Move(Transform targetTransform)
+    private void Move(Transform target)
     {
         transform.position = Vector3.MoveTowards(transform.position, 
-            new Vector3(targetTransform.position.x, targetTransform.position.y, 0.0f), _speed * Time.deltaTime);
+            new Vector3(target.position.x, target.position.y, 0.0f), _speed * Time.deltaTime);
     }
 }

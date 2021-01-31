@@ -3,5 +3,10 @@
 
 public abstract class FenceBase : MonoBehaviour
 {
-    public static bool IsFenceDestroy;
+    protected bool isFenceAlive;
+
+    protected virtual void Awake()
+    {
+        isFenceAlive = true;
+    }
 }

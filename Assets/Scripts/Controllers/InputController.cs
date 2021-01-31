@@ -8,8 +8,8 @@ public class InputController: IExecute, IInitialization, IFixExecute
     private Vector2 _input;
 
     private WeaponManager _weaponManager;
-    public bool canShoot;
-    private bool isHoldAttack;
+    private bool _isCanShoot;
+    private bool _isHoldAttack;
 
     public InputController()
     {
@@ -20,7 +20,7 @@ public class InputController: IExecute, IInitialization, IFixExecute
     public void Initialization()
     {
         _weaponManager = Object.FindObjectOfType<WeaponManager>();
-        canShoot = true;
+        _isCanShoot = true;
     }
 
 #if UNITY_STANDALONE || UNITY_WEBGL || UNITY_EDITOR || UNITY_WSA
@@ -34,15 +34,15 @@ public class InputController: IExecute, IInitialization, IFixExecute
 
         if (Input.GetKey(KeyCode.Space))
         {
-            isHoldAttack = true;
+            _isHoldAttack = true;
         }
         else
         {
             _weaponManager.ResetAttack();
-            isHoldAttack = false;
+            _isHoldAttack = false;
         }
 
-        if (isHoldAttack && canShoot)
+        if (_isHoldAttack && _isCanShoot)
         {
             _weaponManager.Attack();
         }
@@ -53,7 +53,7 @@ public class InputController: IExecute, IInitialization, IFixExecute
         _input.x = Input.GetAxis(AxisManager.HORIZONTAL);
         _input.y = Input.GetAxis(AxisManager.VERTICAL);
 
-        _playerData.PlayerMove.Execute(_input);
+        _playerData.playerBase.Execute(_input);
     }
 
 #if UNITY_IOS || UNITY_ANDROID

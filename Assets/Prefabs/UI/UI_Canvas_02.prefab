@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2130032654770604893}
   - component: {fileID: 2130032654770604881}
   m_Layer: 5
-  m_Name: UI Canvas
+  m_Name: UI_Canvas_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -729,6 +729,7 @@ GameObject:
   - component: {fileID: 2130032655299685654}
   - component: {fileID: 2130032655299685652}
   - component: {fileID: 2130032655299685655}
+  - component: {fileID: 4796588936837022072}
   m_Layer: 5
   m_Name: Step_Counter
   m_TagString: Counter
@@ -796,6 +797,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 20
+--- !u!114 &4796588936837022072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130032655299685649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1612367ed54bcb442a9f0ed2aa402259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2130032655404289811
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,6 +2094,7 @@ GameObject:
   - component: {fileID: 2130032656475734770}
   - component: {fileID: 2130032656475734768}
   - component: {fileID: 2130032656475734771}
+  - component: {fileID: 9064673229844528235}
   m_Layer: 5
   m_Name: Life_Full
   m_TagString: LifeFull
@@ -2144,6 +2158,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9064673229844528235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130032656475734781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef48532df5c7bf4a86d05b882778ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2130032656637862198
 GameObject:
   m_ObjectHideFlags: 0

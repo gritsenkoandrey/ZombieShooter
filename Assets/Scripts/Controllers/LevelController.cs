@@ -1,16 +1,9 @@
 ﻿using Interfaces;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 
-public class LevelController : IExecute, IEventBus
+public sealed class LevelController : BaseController, IExecute, IInitialization, IEnemyDie, IStartLevel
 {
-    public static LevelController Instanse;
-
-    public TypeGameGoal typeGameGoal;
-    public TypeTargetZombie typeTargetZombie;
-
     public int coinCount;
 
     private int _zombieCount;
@@ -18,12 +11,6 @@ public class LevelController : IExecute, IEventBus
     private int _timerCount;
 
     private LevelData _levelData;
-    private PlayerData _playerData;
-
-    private Text _zombieCounterText;
-    private Text _timerCounterText;
-    private Text _stepCounterText;
-    private Image _playerLife;
 
     private float _distance;
     private int _initialStepCount;
@@ -34,23 +21,12 @@ public class LevelController : IExecute, IEventBus
     private TimeRemaining _timerCountdown;
     private readonly float _timeCountdownLeft = 1.0f;
 
+    private bool _isStartLevel = false;
 
-    public LevelController()
+    public void Initialization()
     {
-        if (Instanse != null)
-        {
-            return;
-        }
-        Instanse = this;
-
         InitializationData();
-
         EventBus.Subscribe(this);
-
-        if (typeGameGoal != TypeGameGoal.NONE || typeGameGoal != TypeGameGoal.GAME_OVER)
-        {
-            InitializationUILavel();
-        }
     }
 
     public void Execute()
@@ -58,13 +34,12 @@ public class LevelController : IExecute, IEventBus
         CountPlayerMovement();
     }
 
-    public void Call()
+    public void EnemyDie()
     {
-        if (typeGameGoal == TypeGameGoal.KILL_ZOMBIE)
+        if (_levelData.typeGameGoal == TypeGameGoal.KILL_ZOMBIE)
         {
-            //сделать через событие Event Bus
             _zombieCount--;
-            _zombieCounterText.text = _zombieCount.ToString();
+            UIInterface.UICounter.ShowCounter(_zombieCount);
 
             if (_zombieCount <= 0)
             {
@@ -73,21 +48,48 @@ public class LevelController : IExecute, IEventBus
         }
     }
 
-    public void ZombieDied()
+    public void StartLevel()
     {
-    }
+        if (!_isStartLevel)
+        {
+            if (Data.Instance.LevelData.typeGameGoal == TypeGameGoal.KILL_ZOMBIE)
+            {
+                _levelData.ShowUI(_levelData.levelOneUI);
+                UIInterface.UICounter.ShowCounter(_zombieCount);
+            }
+            else if (Data.Instance.LevelData.typeGameGoal == TypeGameGoal.WALK_TO_GOAL_STEPS)
+            {
+                _levelData.ShowUI(_levelData.levelTwoUI);
+                _playerTarget = GameObject.FindGameObjectWithTag(TagManager.GetTag(TypeTag.PLAYER)).transform;
+                _playerPreviousPos = _playerTarget.position;
+                _initialStepCount = _stepCount;
+                UIInterface.UICounter.ShowCounter(_stepCount);
+            }
+            else if (Data.Instance.LevelData.typeGameGoal == TypeGameGoal.DEFEND_FENCE || _levelData.typeGameGoal == TypeGameGoal.TIMER_COUNTDOWN)
+            {
+                if (Data.Instance.LevelData.typeGameGoal == TypeGameGoal.DEFEND_FENCE)
+                {
+                    _levelData.ShowUI(_levelData.levelThreeUI);
+                }
+                else
+                {
+                    _levelData.ShowUI(_levelData.levelFourUI);
+                }
+                _timerCountdown = new TimeRemaining(TimerCountdawn, _timeCountdownLeft, true);
 
-    public void PlayerLifeCounter(float fillPercentage)
-    {
-        //вынести отображение здоровья через view model
-        fillPercentage /= _playerData.GetHealth();
-        _playerLife.fillAmount = fillPercentage;
+                UIInterface.UICounter.ShowCounter(_timerCount);
+                _timerCountdown.AddTimeRemaining();
+            }
+
+            _isStartLevel = true;
+        }
     }
 
     private void TimerCountdawn()
     {
         _timerCount--;
-        _timerCounterText.text = _timerCount.ToString();
+
+        UIInterface.UICounter.ShowCounter(_timerCount);
 
         if (_timerCount <= 0)
         {
@@ -98,92 +100,53 @@ public class LevelController : IExecute, IEventBus
 
     private void CountPlayerMovement()
     {
-        if (typeGameGoal == TypeGameGoal.WALK_TO_GOAL_STEPS)
+        if (Data.Instance.LevelData.typeGameGoal == TypeGameGoal.WALK_TO_GOAL_STEPS)
         {
-            _playerCurrentPos = _playerTarget.position;
-            _distance = Mathf.Abs(_playerCurrentPos.x - _playerPreviousPos.x);
-
-            if (_playerCurrentPos.x > _playerPreviousPos.x)
+            if (_playerTarget)
             {
-                if (_distance > 1)
-                {
-                    _stepCount--;
+                _playerCurrentPos = _playerTarget.position;
+                _distance = Mathf.Abs(_playerCurrentPos.x - _playerPreviousPos.x);
 
-                    if (_stepCount <= 0)
-                    {
-                        Debug.Log("Game Over");
-                    }
-                    _playerPreviousPos = _playerTarget.position;
-                }
-            }
-            else if (_playerCurrentPos.x < _playerPreviousPos.x)
-            {
-                if (_distance > 0.8f)
+                if (_playerCurrentPos.x > _playerPreviousPos.x)
                 {
-                    _stepCount++;
-
-                    if (_stepCount >= _initialStepCount)
+                    if (_distance > 1)
                     {
-                        _stepCount = _initialStepCount;
+                        _stepCount--;
+
+                        if (_stepCount <= 0)
+                        {
+                            Debug.Log("Game Over");
+                        }
+                        _playerPreviousPos = _playerTarget.position;
                     }
-                    _playerPreviousPos = _playerTarget.position;
                 }
+                else if (_playerCurrentPos.x < _playerPreviousPos.x)
+                {
+                    if (_distance > 0.8f)
+                    {
+                        _stepCount++;
+
+                        if (_stepCount >= _initialStepCount)
+                        {
+                            _stepCount = _initialStepCount;
+                        }
+                        _playerPreviousPos = _playerTarget.position;
+                    }
+                }
+                UIInterface.UICounter.ShowCounter(_stepCount);
             }
-            _stepCounterText.text = _stepCount.ToString();
         }
     }
 
     private void InitializationData()
     {
         _levelData = Data.Instance.LevelData;
-        _playerData = Data.Instance.PlayerData;
 
-        _zombieCount = _levelData.zombieCount;
-        _stepCount = _levelData.stepCount;
-        _timerCount = _levelData.timerCount;
+        _zombieCount = Data.Instance.LevelData.zombieCount;
+        _stepCount = Data.Instance.LevelData.stepCount;
+        _timerCount = Data.Instance.LevelData.timerCount;
 
-        typeTargetZombie = _levelData.typeTargetZombie;
-        typeGameGoal = _levelData.typeGameGoal;
-    }
-
-    private void InitializationUILavel()
-    {
-        if (typeGameGoal == TypeGameGoal.KILL_ZOMBIE)
-        {
-            _levelData.ShowUI(_levelData.levelOneUI);
-            _zombieCounterText = GameObject.FindGameObjectWithTag(TagManager.GetTag(TypeTag.COUNTER)).GetComponent<Text>();
-            _playerLife = GameObject.FindGameObjectWithTag(TagManager.GetTag(TypeTag.LIFE_FULL)).GetComponent<Image>();
-            _zombieCounterText.text = _zombieCount.ToString();
-        }
-        else if (typeGameGoal == TypeGameGoal.WALK_TO_GOAL_STEPS)
-        {
-            _levelData.ShowUI(_levelData.levelTwoUI);
-            _playerTarget = GameObject.FindGameObjectWithTag(TagManager.GetTag(TypeTag.PLAYER)).transform;
-            _playerPreviousPos = _playerTarget.position;
-            _initialStepCount = _stepCount;
-            _stepCounterText = GameObject.FindGameObjectWithTag(TagManager.GetTag(TypeTag.COUNTER)).GetComponent<Text>();
-            _stepCounterText.text = _stepCount.ToString();
-            _playerLife = GameObject.FindGameObjectWithTag(TagManager.GetTag(TypeTag.LIFE_FULL)).GetComponent<Image>();
-        }
-        else if (typeGameGoal == TypeGameGoal.DEFEND_FENCE || typeGameGoal == TypeGameGoal.TIMER_COUNTDOWN)
-        {
-            if (typeGameGoal == TypeGameGoal.DEFEND_FENCE)
-            {
-                _levelData.ShowUI(_levelData.levelThreeUI);
-            }
-            else
-            {
-                _levelData.ShowUI(_levelData.levelFourUI);
-            }
-            _timerCountdown = new TimeRemaining(TimerCountdawn, _timeCountdownLeft, true);
-            _timerCounterText = GameObject.FindGameObjectWithTag(TagManager.GetTag(TypeTag.COUNTER)).GetComponent<Text>();
-            _timerCounterText.text = _timerCount.ToString();
-            _playerLife = GameObject.FindGameObjectWithTag(TagManager.GetTag(TypeTag.LIFE_FULL)).GetComponent<Image>();
-            _timerCountdown.AddTimeRemaining();
-        }
-        else
-        {
-            return;
-        }
+        _levelData.typeTargetZombie = TypeTargetZombie.NONE;
+        _levelData.typeGameGoal = TypeGameGoal.NONE;
     }
 }

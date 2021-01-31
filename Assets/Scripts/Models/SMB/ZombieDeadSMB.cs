@@ -9,6 +9,6 @@ public class ZombieDeadSMB : StateMachineBehaviour
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
 
-        animator.GetComponent<ZombieController>().ActivateDeadEffect(_index);
+        animator.GetComponent<ZombieHealth>().ActivateDeadEffect(_index);
     }
 }

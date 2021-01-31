@@ -744,6 +744,7 @@ GameObject:
   - component: {fileID: 2802532980422561539}
   - component: {fileID: 2802532980422561537}
   - component: {fileID: 2802532980422561538}
+  - component: {fileID: 4594406434796713256}
   m_Layer: 5
   m_Name: Life_Full
   m_TagString: LifeFull
@@ -807,6 +808,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4594406434796713256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2802532980422561548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef48532df5c7bf4a86d05b882778ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2802532980548369579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,7 +1636,7 @@ GameObject:
   - component: {fileID: 2802532981133346476}
   - component: {fileID: 2802532981133346464}
   m_Layer: 5
-  m_Name: UI Canvas
+  m_Name: UI_Canvas_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2274,6 +2287,7 @@ GameObject:
   - component: {fileID: 2802532981662425319}
   - component: {fileID: 2802532981662425317}
   - component: {fileID: 2802532981662425318}
+  - component: {fileID: 8528081422062300818}
   m_Layer: 5
   m_Name: Timer_Counter
   m_TagString: Counter
@@ -2341,3 +2355,15 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 20
+--- !u!114 &8528081422062300818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2802532981662425312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1612367ed54bcb442a9f0ed2aa402259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

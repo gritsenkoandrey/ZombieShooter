@@ -8,8 +8,9 @@ public class PlayerArmController : PlayerBase
 
     private SpriteRenderer _spriteRenderer;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 

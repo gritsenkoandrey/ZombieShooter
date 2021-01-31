@@ -14397,8 +14397,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00060422067, z: 0}
-  m_LocalScale: {x: 1.0003777, y: 1.0003777, z: 1.0003777}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 461534}
   m_RootOrder: 0
@@ -34085,36 +34085,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!1 &171854
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 408364}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &408364
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 171854}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 406000}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &174028
 GameObject:
   m_ObjectHideFlags: 0
@@ -34158,7 +34128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 421742}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: FX_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34196,6 +34166,7 @@ GameObject:
   - component: {fileID: 559944475329953653}
   - component: {fileID: 8015709527792095913}
   - component: {fileID: 871199741965130366}
+  - component: {fileID: -7511944521871187850}
   m_Layer: 0
   m_Name: BigZombie
   m_TagString: Enemy
@@ -34211,7 +34182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5331273, y: -1.5720191, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400302}
@@ -34311,6 +34282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ce34db6a262fd4c891d81ea50591d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _zombie: {fileID: 11400000, guid: 9da482b12776f6043951fddb8bff93cf, type: 2}
 --- !u!114 &871199741965130366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34320,16 +34292,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 184972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad7e41f5edb89ee4599082bbf3edb413, type: 3}
+  m_Script: {fileID: 11500000, guid: 30160e0356a198742b3db75ae523d97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _zombieHealth: 10
-  _damageCollider: {fileID: 1852009596050652}
+  _zombie: {fileID: 11400000, guid: 9da482b12776f6043951fddb8bff93cf, type: 2}
+--- !u!114 &-7511944521871187850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956dc17b34ca314428d493754b9d1725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zombie: {fileID: 11400000, guid: 9da482b12776f6043951fddb8bff93cf, type: 2}
   _fxDead:
   - {fileID: 178502}
   - {fileID: 191432}
   - {fileID: 178502}
-  _coinCollectable: {fileID: 0}
 --- !u!1 &187212
 GameObject:
   m_ObjectHideFlags: 0
@@ -43900,7 +43883,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 403382}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: 'FX_Dead '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43955,7 +43938,6 @@ Transform:
   - {fileID: 431806}
   - {fileID: 454036}
   - {fileID: 434606}
-  - {fileID: 408364}
   m_Father: {fileID: 403382}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47457,7 +47439,7 @@ ParticleSystem:
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    plane0: {fileID: 408364}
+    plane0: {fileID: 0}
     plane1: {fileID: 0}
     plane2: {fileID: 0}
     plane3: {fileID: 0}
@@ -48676,8 +48658,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.028372027, w: 0.9995975}
   m_LocalPosition: {x: 0.26000023, y: 0.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4640115041625994}
+  m_Children: []
   m_Father: {fileID: 461534}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.2516}
@@ -48951,48 +48932,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 2.3}
   m_EdgeRadius: 0
---- !u!1 &1852009596050652
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4640115041625994}
-  - component: {fileID: 7102979910384002640}
-  m_Layer: 0
-  m_Name: Damage Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4640115041625994
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852009596050652}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.82, y: 0.34, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 495206}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7102979910384002640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852009596050652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30160e0356a198742b3db75ae523d97a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _radius: 1
-  _damage: 3

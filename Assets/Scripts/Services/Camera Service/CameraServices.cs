@@ -10,7 +10,7 @@ public sealed class CameraServices
         SetCamera(Camera.main);
     }
 
-    private void SetCamera(Camera camera)
+    public void SetCamera(Camera camera)
     {
         CameraMain = camera;
     }

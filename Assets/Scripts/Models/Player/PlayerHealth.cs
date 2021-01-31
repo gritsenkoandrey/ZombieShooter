@@ -3,30 +3,37 @@
 
 public class PlayerHealth : PlayerBase
 {
-    private int _health;
     [SerializeField] private GameObject[] _bloodFX = null;
-    private PlayerAnimations _playerAnim;
 
+    private int _health;
     public int Health { get { return _health; } private set { _health = value; } }
 
-    private void Awake()
+    protected override void Awake()
     {
-        _playerAnim = GetComponentInParent<PlayerAnimations>();
+        base.Awake();
+
+        playerAnimations = GetComponentInParent<PlayerAnimations>();
+        InitializationPlayerHealthData();
+    }
+
+    private void InitializationPlayerHealthData()
+    {
         _health = (int)Data.Instance.PlayerData.GetHealth();
     }
 
     public void DealDamage(int damage)
     {
         Health -= damage;
-        LevelController.Instanse.PlayerLifeCounter(Health);
-        _playerAnim.PlayerHurtAnimation();
+        EventBus.RaiseEvent<ICalculateHealth>(h => h.CalculateHealth(Health));
+        playerAnimations.PlayerHurtAnimation();
 
         if (Health <= 0)
         {
-            IsPlayerDead = true;
+            isPlayerAlive = false;
             gameObject.GetComponent<Collider2D>().enabled = false;
-            _playerAnim.PlayerDeadAnimation();
+            playerAnimations.PlayerDeadAnimation();
             _bloodFX[Random.Range(0, _bloodFX.Length)].SetActive(true);
+            Data.Instance.LevelData.typeGameGoal = TypeGameGoal.GAME_OVER;
         }
     }
 }

@@ -4804,7 +4804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 434802}
   - component: {fileID: 6176984}
-  m_Layer: 12
+  m_Layer: 10
   m_Name: HealthCollider
   m_TagString: ZombieHealth
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -14445,7 +14445,6 @@ Transform:
   - {fileID: 400104}
   - {fileID: 465928}
   - {fileID: 456114}
-  - {fileID: 419260}
   m_Father: {fileID: 482258}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17947,7 +17946,7 @@ ParticleSystem:
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    plane0: {fileID: 419260}
+    plane0: {fileID: 0}
     plane1: {fileID: 0}
     plane2: {fileID: 0}
     plane3: {fileID: 0}
@@ -19166,8 +19165,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.304, y: 0.135, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4478085470679660}
+  m_Children: []
   m_Father: {fileID: 473324}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.3589334}
@@ -24053,36 +24051,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &123794
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 419260}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &419260
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123794}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 479276}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &124644
 GameObject:
   m_ObjectHideFlags: 0
@@ -33689,7 +33657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 446872}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: FX_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33806,7 +33774,11 @@ GameObject:
   - component: {fileID: 9586278}
   - component: {fileID: 5060664}
   - component: {fileID: 6117422}
-  m_Layer: 9
+  - component: {fileID: 3968095026256401329}
+  - component: {fileID: 2884931538807821734}
+  - component: {fileID: 3843969190952554204}
+  - component: {fileID: 3532329457252785801}
+  m_Layer: 0
   m_Name: BossZombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -33821,7 +33793,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9861225, y: -2.075347, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 496626}
@@ -33897,6 +33869,61 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.21}
   m_EdgeRadius: 0
+--- !u!114 &3968095026256401329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ce34db6a262fd4c891d81ea50591d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zombie: {fileID: 11400000, guid: fcf5a58dac8f1c746b993f2406ee220d, type: 2}
+--- !u!114 &2884931538807821734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe40f6bde0f93c4cb5429f459825298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3843969190952554204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30160e0356a198742b3db75ae523d97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zombie: {fileID: 11400000, guid: fcf5a58dac8f1c746b993f2406ee220d, type: 2}
+--- !u!114 &3532329457252785801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956dc17b34ca314428d493754b9d1725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zombie: {fileID: 11400000, guid: fcf5a58dac8f1c746b993f2406ee220d, type: 2}
+  _fxDead:
+  - {fileID: 135430}
+  - {fileID: 112682}
+  - {fileID: 135430}
 --- !u!1 &159114
 GameObject:
   m_ObjectHideFlags: 0
@@ -33906,7 +33933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482258}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: 'FX_Dead '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48848,36 +48875,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1091640258440400
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4478085470679660}
-  m_Layer: 0
-  m_Name: Damage Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4478085470679660
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1091640258440400}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 448674}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1230294659409060
 GameObject:
   m_ObjectHideFlags: 0
@@ -48888,7 +48885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4697448890842972}
   - component: {fileID: 61596363187230026}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,8 +5,9 @@ public class PlayerAnimations : PlayerBase
 {
     private Animator _animator;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _animator = GetComponent<Animator>();
     }
 

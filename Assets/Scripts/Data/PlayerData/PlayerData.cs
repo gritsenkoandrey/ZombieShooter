@@ -17,11 +17,12 @@ public sealed class PlayerData : ScriptableObject
     public float maxPosX = 153.0f;
     public float minPosX = -13.0f;
 
-    [HideInInspector] public PlayerMove PlayerMove;
+    internal PlayerBase playerBase;
 
     public void Initialization()
     {
-        PlayerMove = FindObjectOfType<PlayerMove>();
+        playerBase = GameObject.FindGameObjectWithTag(TagManager.GetTag(TypeTag.PLAYER))
+            .GetComponent<PlayerMove>();
     }
 
     public float GetSpeed()
