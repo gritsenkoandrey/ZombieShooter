@@ -5,12 +5,11 @@ public sealed class GameController : MonoBehaviour
 {
     private Controllers _controllers;
 
-    private void Awake()
+    private void Start()
     {
         _controllers = new Controllers();
         Cleaner();
         Initialization();
-        Services.Instance.CameraServices.SetCamera(Camera.main);
     }
 
     private void Update()
@@ -31,7 +30,7 @@ public sealed class GameController : MonoBehaviour
 
     private void LateUpdate()
     {
-        for (int i = 0; i < _controllers.LateLength; i++)
+        for (var i = 0; i < _controllers.LateLength; i++)
         {
             _controllers[(short)i].LateExecute();
         }

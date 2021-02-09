@@ -33,8 +33,9 @@ public sealed class Controllers : IInitialization, ICleanUp
         _lateExecuteControllers = new ILateExecute[1];
         _lateExecuteControllers[0] = new CameraController();
 
-        _cleanUps = new ICleanUp[1];
+        _cleanUps = new ICleanUp[2];
         _cleanUps[0] = new TimeRemainingCleanUp();
+        _cleanUps[1] = new LevelController();
     }
 
     public void Initialization()
@@ -80,14 +81,5 @@ public sealed class Controllers : IInitialization, ICleanUp
             var cleanUp = _cleanUps[index];
             cleanUp.Cleaner();
         }
-
-        //for (var i = 0; i < _executeControllers.Length; i++)
-        //{
-        //    var execute = _executeControllers[i];
-        //    if (execute is ICleanUp cleanUp)
-        //    {
-        //        cleanUp.Cleaner();
-        //    }
-        //}
     }
 }

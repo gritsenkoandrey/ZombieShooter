@@ -118,9 +118,8 @@ public class PoolObject : MonoBehaviour
                     _bulletRocketPrefabs[i].SetActive(true);
                     _bulletRocketPrefabs[i].transform.position = pos;
                     _bulletRocketPrefabs[i].transform.rotation = rot;
-
+                    _bulletRocketPrefabs[i].transform.localScale = dir.x > 0 ? new Vector3(-1.0f, 1.0f, 1.0f) : new Vector3(1.0f, 1.0f, 1.0f);
                     _bulletRocketPrefabs[i].GetComponent<Bullet>().AddForce(dir);
-
                     SetBulletDamage(weaponName, _bulletRocketPrefabs[i], weapon);
                     break;
                 }

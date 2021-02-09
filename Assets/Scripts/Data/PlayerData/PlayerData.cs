@@ -44,13 +44,13 @@ public sealed class PlayerData : ScriptableObject
     {
         _speed = _speedTommy;
         _health = _healthTommy;
-        Instantiate(_tommy);
+        Instantiate(_tommy, new Vector2(0.0f, -1.5f), Quaternion.identity);
     }
 
     public void SpawnMarry()
     {
         _speed = _speedMarry;
         _health = _healthMarry;
-        Instantiate(_marry);
+        Instantiate(_marry, new Vector2(0.0f, -1.5f), Quaternion.identity);
     }
 }

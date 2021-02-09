@@ -26,7 +26,7 @@ public class InputController: BaseController, IExecute, IInitialization, IFixExe
 
     public void Execute()
     {
-        if (!UIInterface.MainMenu.isActiveAndEnabled)
+        if (!Interface.MainMenu.isActiveAndEnabled)
         {
             if (Input.GetKeyDown(KeyCode.Tab))
             {
@@ -52,7 +52,7 @@ public class InputController: BaseController, IExecute, IInitialization, IFixExe
 
     public void FixExecute()
     {
-        if (!UIInterface.MainMenu.isActiveAndEnabled)
+        if (!Interface.MainMenu.isActiveAndEnabled)
         {
             _input.x = Input.GetAxis(AxisManager.HORIZONTAL);
             _input.y = Input.GetAxis(AxisManager.VERTICAL);

@@ -66,14 +66,14 @@ public sealed class ZombieHealth : ZombieBase
 
     private void DeactivateZombie()
     {
-        EventBus.RaiseEvent<IEnemyDie>(h => h.EnemyDie());
+        EventBus.RaiseEvent<IZombieDie>(h => h.ZombieDestroy());
         if (Random.Range(0, 10) > 6)
         {
             Instantiate(_coin, transform.position, Quaternion.identity);
         }
         _timeRemainingDeactivateZombie.RemoveTimeRemaining();
         gameObject.SetActive(false);
-    }
+    } 
 
     private void DeathZombie()
     {

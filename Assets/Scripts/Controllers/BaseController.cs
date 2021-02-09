@@ -1,9 +1,9 @@
 ﻿public abstract class BaseController
 {
-    protected UIInterface UIInterface;
+    protected UIInterface Interface;
 
-    public BaseController()
+    protected BaseController()
     {
-        UIInterface = new UIInterface();
+        Interface = new UIInterface();
     }
 }

@@ -17,13 +17,28 @@ public sealed class LevelData : ScriptableObject
     public GameObject levelThreeUI;
     public GameObject levelFourUI;
 
-    public void ShowUI(GameObject obj)
+    [Header("Game Level")]
+    public GameObject gameLevelOne;
+    public GameObject gameLevelTwo;
+    public GameObject gameLevelThree;
+    public GameObject gameLevelFour;
+
+    [Header("Fence")]
+    [SerializeField] private GameObject _fence = null;
+
+    /// <summary>
+    /// Instantiate Game Level and Game UI
+    /// </summary>
+    public void SpawnGameLevel(GameObject ui, GameObject background)
     {
-        Instantiate(obj);
+        Instantiate(ui);
+        Instantiate(background);
     }
 
-    public void HideUI(GameObject obj)
+    public void SpawnFences()
     {
-        Destroy(obj);
+        Instantiate(_fence, new Vector2(1.0f, -0.33f), Quaternion.identity);
+        Instantiate(_fence, new Vector2(1.0f, -1.633f), Quaternion.identity);
+        Instantiate(_fence, new Vector2(1.0f, -3.233f), Quaternion.identity);
     }
 }

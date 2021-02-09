@@ -8,6 +8,7 @@ public class GameMenuBehaviour : BaseUI
     [SerializeField] private Button _pauseButton = null;
     [SerializeField] private Button _resumeButton = null;
     [SerializeField] private Button _quitButton = null;
+    [SerializeField] private Button _continueButton = null;
 
     [SerializeField] private GameObject _pausePanel = null;
     [SerializeField] private GameObject _gameOverPanel = null;
@@ -17,6 +18,7 @@ public class GameMenuBehaviour : BaseUI
         _pauseButton.onClick.AddListener(PauseGame);
         _resumeButton.onClick.AddListener(ResumeGame);
         _quitButton.onClick.AddListener(QuitGame);
+        _continueButton.onClick.AddListener(QuitGame);
     }
 
     private void OnDisable()
@@ -24,6 +26,7 @@ public class GameMenuBehaviour : BaseUI
         _pauseButton.onClick.RemoveListener(PauseGame);
         _resumeButton.onClick.RemoveListener(ResumeGame);
         _quitButton.onClick.RemoveListener(QuitGame);
+        _continueButton.onClick.RemoveListener(QuitGame);
     }
 
     public override void Hide()
@@ -55,7 +58,12 @@ public class GameMenuBehaviour : BaseUI
         Data.Instance.LevelData.typeTargetZombie = TypeTargetZombie.NONE;
         Data.Instance.LevelData.typeGameGoal = TypeGameGoal.NONE;
         Services.Instance.TimeService.SetTimeScale(1.0f);
-
         SceneManager.LoadScene(0);
+    }
+
+    public void ShowGameOverPanel()
+    {
+        _gameOverPanel.SetActive(true);
+        Services.Instance.TimeService.SetTimeScale(0.0f);
     }
 }

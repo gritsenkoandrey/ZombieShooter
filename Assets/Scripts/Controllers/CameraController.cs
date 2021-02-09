@@ -9,6 +9,7 @@ public class CameraController: IInitialization, ILateExecute, IInitializationPla
 
     public void Initialization()
     {
+        Services.Instance.CameraServices.SetCamera(Camera.main);
         EventBus.Subscribe(this);
     }
 
