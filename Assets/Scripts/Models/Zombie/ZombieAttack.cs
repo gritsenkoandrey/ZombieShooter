@@ -20,19 +20,19 @@ public sealed class ZombieAttack : ZombieBase
     private bool _isDistanceAttack = false;
     private bool _isCanAttack = true;
 
-    private TimeRemaining _timeRemainingAttackZombie;
-    private float _timeToAttack;
+    private TimeRemaining _timeRemainingTimerAttack;
+    private float _timeToTimerAttack;
 
     protected override void Awake()
     {
         base.Awake();
 
         _damage = _zombie.damage;
-        _timeToAttack = _zombie.attackSpeed;
+        _timeToTimerAttack = _zombie.attackSpeed;
 
         ChooseTarget();
 
-        _timeRemainingAttackZombie = new TimeRemaining(TimerAttack, _timeToAttack, true);
+        _timeRemainingTimerAttack = new TimeRemaining(TimerAttack, _timeToTimerAttack, true);
     }
 
     public override void Execute()
@@ -97,7 +97,7 @@ public sealed class ZombieAttack : ZombieBase
         if (_isDistanceAttack && _isCanAttack)
         {
             zombieAnimation.ZombieAttackAnimation();
-
+            AudioManager.Instance.PlaySound(ClipManager.ZOMBIE_ATTACK_CLIPS[Random.Range(0, ClipManager.ZOMBIE_ATTACK_CLIPS.Length)]);
             _countTarget = Physics2D.OverlapCircleNonAlloc(transform.position, _radiusAttack, _colliders, LayerManager.ZombieAttackLayer);
 
             for (int i = 0; i < _countTarget; i++)
@@ -106,14 +106,14 @@ public sealed class ZombieAttack : ZombieBase
                 {
                     _colliders[i].GetComponent<PlayerHealth>().DealDamage(_damage);
                     _isCanAttack = false;
-                    _timeRemainingAttackZombie.AddTimeRemaining();
+                    _timeRemainingTimerAttack.AddTimeRemaining();
                 }
 
                 if (_colliders[i].CompareTag(TagManager.GetTag(TypeTag.FENCE)))
                 {
                     _colliders[i].GetComponent<FenceHealth>().DealDamage(_damage);
                     _isCanAttack = false;
-                    _timeRemainingAttackZombie.AddTimeRemaining();
+                    _timeRemainingTimerAttack.AddTimeRemaining();
                 }
             }
         }
@@ -122,6 +122,6 @@ public sealed class ZombieAttack : ZombieBase
     private void TimerAttack()
     {
         _isCanAttack = true;
-        _timeRemainingAttackZombie.RemoveTimeRemaining();
+        _timeRemainingTimerAttack.RemoveTimeRemaining();
     }
 }

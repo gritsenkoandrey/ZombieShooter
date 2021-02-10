@@ -70,6 +70,7 @@ public sealed class ZombieHealth : ZombieBase
         if (Random.Range(0, 10) > 6)
         {
             Instantiate(_coin, transform.position, Quaternion.identity);
+            AudioManager.Instance.PlaySound(ClipManager.COIN_DROP_CLIP);
         }
         _timeRemainingDeactivateZombie.RemoveTimeRemaining();
         gameObject.SetActive(false);
@@ -79,6 +80,7 @@ public sealed class ZombieHealth : ZombieBase
     {
         OnDieChange?.Invoke(this);
         zombieAnimation.ZombieDeadAnimation();
+        AudioManager.Instance.PlaySound(ClipManager.ZOMBIE_DIE_CLIP);
         _timeRemainingDeactivateZombie.AddTimeRemaining();
     }
 

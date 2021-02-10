@@ -15,6 +15,6 @@ public class WeaponMelee : WeaponBase
 
     protected override void ProcessAttack()
     {
-        //base.ProcessAttack();
+        AudioManager.Instance.PlaySound(ClipManager.MELEE_CLIP);
     }
 }

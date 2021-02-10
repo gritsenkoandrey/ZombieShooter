@@ -40,10 +40,13 @@ public class WeaponManager : MonoBehaviour
 
     public void SwitchWeapon()
     {
-        _currentWeaponIndex++;
-        _currentWeaponIndex = (_currentWeaponIndex >= _weaponsUnlocked.Count) ? 0 : _currentWeaponIndex;
-        _playerAnim.PlayerSwitchWeaponAnimation((int)_weaponsUnlocked[_currentWeaponIndex].weapon.typeWeapon);
-        ChangeWeapon(_weaponsUnlocked[_currentWeaponIndex]);
+        if (PlayerBase.IsPlayerAlive)
+        {
+            _currentWeaponIndex++;
+            _currentWeaponIndex = (_currentWeaponIndex >= _weaponsUnlocked.Count) ? 0 : _currentWeaponIndex;
+            _playerAnim.PlayerSwitchWeaponAnimation((int)_weaponsUnlocked[_currentWeaponIndex].weapon.typeWeapon);
+            ChangeWeapon(_weaponsUnlocked[_currentWeaponIndex]);
+        }
     }
 
     private void ChangeWeapon(WeaponBase newWeapon)
@@ -73,16 +76,19 @@ public class WeaponManager : MonoBehaviour
 
     public void Attack()
     {
-        if (_currentTypeControl == TypeControlAttack.Hold)
+        if (PlayerBase.IsPlayerAlive)
         {
-            _currentWeapon.CallAttack();
-        }
-        else if (_currentTypeControl == TypeControlAttack.Click)
-        {
-            if (!_isShooting)
+            if (_currentTypeControl == TypeControlAttack.Hold)
             {
                 _currentWeapon.CallAttack();
-                _isShooting = true;
+            }
+            else if (_currentTypeControl == TypeControlAttack.Click)
+            {
+                if (!_isShooting)
+                {
+                    _currentWeapon.CallAttack();
+                    _isShooting = true;
+                }
             }
         }
     }

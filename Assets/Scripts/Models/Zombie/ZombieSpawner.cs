@@ -30,6 +30,7 @@ public class ZombieSpawner : ZombieBase
 
         _player = GameObject.FindGameObjectWithTag(TagManager.GetTag(TypeTag.PLAYER)).transform;
         _fxShred.Play();
+        AudioManager.Instance.PlaySound(ClipManager.ZOMBIE_RISE_CLIP);
         _zombie = Instantiate(_zombiePrefab, _spawnPoint.position, Quaternion.identity);
         ZombieList.AddZombieToList(_zombie.GetComponent<ZombieAttack>());
 
@@ -44,7 +45,6 @@ public class ZombieSpawner : ZombieBase
         _timeRemainingZombieSpawn.AddTimeRemaining();
     }
 
-    //добавить возврат в пул
     private void DestroySpawnPoint()
     {
         gameObject.SetActive(false);

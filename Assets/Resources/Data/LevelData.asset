@@ -16,7 +16,7 @@ MonoBehaviour:
   stepCount: 100
   timerCount: 50
   typeGameGoal: 5
-  typeTargetZombie: 2
+  typeTargetZombie: 1
   levelOneUI: {fileID: 6122041395179035219, guid: 4cec657ef8a2f4f47be01344edaf0660,
     type: 3}
   levelTwoUI: {fileID: 2130032654770604892, guid: b11c8703f97044044b6bab256dd57032,
@@ -33,4 +33,4 @@ MonoBehaviour:
     type: 3}
   gameLevelFour: {fileID: 5056664541941325168, guid: 5854eba88a7981b4aafaa2103e576d0c,
     type: 3}
-  fence: {fileID: 9193579146377338843, guid: bafbe9797ed56c340918a42d596ea005, type: 3}
+  _fence: {fileID: 9193579146377338843, guid: bafbe9797ed56c340918a42d596ea005, type: 3}

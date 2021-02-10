@@ -29,7 +29,7 @@ public class PlayerHealth : PlayerBase
 
         if (Health <= 0)
         {
-            isPlayerAlive = false;
+            IsPlayerAlive = false;
             gameObject.GetComponent<Collider2D>().enabled = false;
             playerAnimations.PlayerDeadAnimation();
             _bloodFX[Random.Range(0, _bloodFX.Length)].SetActive(true);

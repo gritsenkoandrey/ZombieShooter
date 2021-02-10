@@ -8,13 +8,19 @@ public abstract class PlayerBase : MonoBehaviour
     protected PlayerMove playerMove;
     protected PlayerData playerData;
 
-    protected static bool isPlayerAlive;
+    private static bool _isPlayerAlive;
+
+    public static bool IsPlayerAlive
+    {
+        get { return _isPlayerAlive; }
+        protected set { _isPlayerAlive = value; }
+    }
 
     protected virtual void Awake()
     {
         playerData = Data.Instance.PlayerData;
 
-        isPlayerAlive = true;
+        IsPlayerAlive = true;
     }
 
     public virtual void Execute(Vector2 pos) { }

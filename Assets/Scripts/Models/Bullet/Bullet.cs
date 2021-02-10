@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
     {
         if (CompareTag(TagManager.GetTag(TypeTag.ROCKET_MISSILE)))
         {
-            _speed = 250.0f;
+            _speed = 350.0f;
         }
         else
         {
@@ -62,5 +62,6 @@ public class Bullet : MonoBehaviour
     public void ExplosionFX()
     {
         Instantiate(_rocketExplosion, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlaySound(ClipManager.ROCKET_EXPLOSION_CLIP);
     }
 }

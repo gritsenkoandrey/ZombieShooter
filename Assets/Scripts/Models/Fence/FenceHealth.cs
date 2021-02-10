@@ -28,6 +28,7 @@ public sealed class FenceHealth : FenceBase
         {
             isFenceAlive = false;
             _woodExplodeFX.Play();
+            AudioManager.Instance.PlaySound(ClipManager.FENCE_EXPLOSION_CLIP);
             EventBus.RaiseEvent<IFenceDie>(h => h.FenceDestroy());
             _timeRemainingDeactivateFence.AddTimeRemaining();
         }

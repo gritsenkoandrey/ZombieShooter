@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f70d6f01ada99644ae1d6dba9d6d978, type: 3}
   m_Name: GunZombie
   m_EditorClassIdentifier: 
-  typeZombie: 2
+  _typeZombie: 2
   health: 15
   damage: 5
   moveSpeed: 1.5

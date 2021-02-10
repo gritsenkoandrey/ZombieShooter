@@ -61,11 +61,13 @@ public class MainMenuBahaviour : BaseUI
 
     private void OpenCharacterSelectPanel()
     {
+        ClickSound();
         _characterSelectPanel.SetActive(true);
     }
 
     private void CloseCharacterSelectPanel()
     {
+        ClickSound();
         _characterSelectPanel.SetActive(false);
     }
 
@@ -111,6 +113,7 @@ public class MainMenuBahaviour : BaseUI
 
     private void Next()
     {
+        ClickSound();
         Hide();
         EventBus.RaiseEvent<IStartLevel>(h => h.StartLevel());
         EventBus.RaiseEvent<ISpawnZombie>(h => h.SpawnZombie());
@@ -136,5 +139,10 @@ public class MainMenuBahaviour : BaseUI
             _isCharacterSelect = true;
             CloseCharacterSelectPanel();
         }
+    }
+
+    private void ClickSound()
+    {
+        AudioManager.Instance.PlaySound(ClipManager.CLICK_CLIP);
     }
 }

@@ -22,7 +22,7 @@ public sealed class PlayerMove : PlayerBase
 
     public override void Execute(Vector2 dir)
     {
-        if (isPlayerAlive)
+        if (IsPlayerAlive)
         {
             Move(dir);
             Flip(dir);

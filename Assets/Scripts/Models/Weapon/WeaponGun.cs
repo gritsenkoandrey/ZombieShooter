@@ -35,7 +35,7 @@ public sealed class WeaponGun : WeaponBase
                 }
                 else
                 {
-                    //play no ammo sound
+                    AudioManager.Instance.PlaySound(ClipManager.OUT_OF_AMMUNITION_CLIP);
                 }
             }
         }
@@ -46,18 +46,25 @@ public sealed class WeaponGun : WeaponBase
         switch (weapon.typeWeaponName)
         {
             case TypeWeaponName.Pistol:
+                AudioManager.Instance.PlaySound(ClipManager.PISTOL_CLIP);
                 break;
             case TypeWeaponName.MP5:
+                AudioManager.Instance.PlaySound(ClipManager.MP5_CLIP);
                 break;
             case TypeWeaponName.M3:
+                AudioManager.Instance.PlaySound(ClipManager.M3_CLIP);
                 break;
             case TypeWeaponName.AK47:
+                AudioManager.Instance.PlaySound(ClipManager.AK47_CLIP);
                 break;
             case TypeWeaponName.AWP:
+                AudioManager.Instance.PlaySound(ClipManager.AWP_CLIP);
                 break;
             case TypeWeaponName.Fire:
+                AudioManager.Instance.PlaySound(ClipManager.FIRE_CLIP);
                 break;
             case TypeWeaponName.Rocket:
+                AudioManager.Instance.PlaySound(ClipManager.ROCKET_CLIP);
                 break;
         }
 

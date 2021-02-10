@@ -11,6 +11,7 @@ public class Colectable : MonoBehaviour
         if (player)
         {
             _coinCount++;
+            AudioManager.Instance.PlaySound(ClipManager.COIN_ADD_CLIP);
             gameObject.SetActive(false);
         }
     }
