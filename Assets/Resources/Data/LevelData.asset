@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63747041080789a44a4d807624acad4c, type: 3}
   m_Name: LevelData
   m_EditorClassIdentifier: 
-  zombieCount: 5
+  zombieCount: 25
   stepCount: 100
   timerCount: 50
-  typeGameGoal: 5
-  typeTargetZombie: 1
+  typeGameGoal: 0
+  typeTargetZombie: 0
   levelOneUI: {fileID: 6122041395179035219, guid: 4cec657ef8a2f4f47be01344edaf0660,
     type: 3}
   levelTwoUI: {fileID: 2130032654770604892, guid: b11c8703f97044044b6bab256dd57032,

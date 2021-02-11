@@ -19,7 +19,8 @@ public sealed class Controllers : IInitialization, ICleanUp
 
     public Controllers()
     {
-        _initializations = new IInitialization[0];
+        _initializations = new IInitialization[1];
+        _initializations[0] = new PlayerController();
 
         _executeControllers = new IExecute[4];
         _executeControllers[0] = new InputController();

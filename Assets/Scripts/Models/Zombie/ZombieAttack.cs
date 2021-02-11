@@ -29,7 +29,7 @@ public sealed class ZombieAttack : ZombieBase
 
         _damage = _zombie.damage;
         _timeToTimerAttack = _zombie.attackSpeed;
-
+        zombieHealth = GetComponentInChildren<ZombieHealth>();
         ChooseTarget();
 
         _timeRemainingTimerAttack = new TimeRemaining(TimerAttack, _timeToTimerAttack, true);

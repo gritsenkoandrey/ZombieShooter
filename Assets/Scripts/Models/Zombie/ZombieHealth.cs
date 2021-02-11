@@ -3,7 +3,6 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-[RequireComponent(typeof(ZombieAnimation))]
 public sealed class ZombieHealth : ZombieBase
 {
     [SerializeField] private Zombie _zombie = null;
@@ -29,6 +28,7 @@ public sealed class ZombieHealth : ZombieBase
     {
         base.Awake();
         _health = _zombie.health;
+        zombieAnimation = GetComponentInParent<ZombieAnimation>();
         _timeRemainingDeactivateZombie = new TimeRemaining(DeactivateZombie, _timeToDeactivateZombie);
     }
 
@@ -60,20 +60,21 @@ public sealed class ZombieHealth : ZombieBase
 
         if (Health <= 0)
         {
+            gameObject.GetComponent<Collider2D>().enabled = false;
             DeathZombie();
         }
     }
 
     private void DeactivateZombie()
     {
-        EventBus.RaiseEvent<IZombieDie>(h => h.ZombieDestroy());
+        LevelController.Instance.ZombieDestroy();
         if (Random.Range(0, 10) > 6)
         {
             Instantiate(_coin, transform.position, Quaternion.identity);
             AudioManager.Instance.PlaySound(ClipManager.COIN_DROP_CLIP);
         }
         _timeRemainingDeactivateZombie.RemoveTimeRemaining();
-        gameObject.SetActive(false);
+        GetComponentInParent<ZombieMove>().gameObject.SetActive(false);
     } 
 
     private void DeathZombie()

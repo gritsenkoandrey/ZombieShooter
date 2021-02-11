@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 472374}
   - component: {fileID: 6114336}
+  - component: {fileID: 149196592817507421}
   m_Layer: 10
   m_Name: HealthCollider
   m_TagString: ZombieHealth
@@ -25,11 +26,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 1.03, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 442014}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6114336
 BoxCollider2D:
@@ -44,7 +45,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000074505806, y: -0.014098644}
+  m_Offset: {x: 0, y: 1.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -55,8 +56,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.61779237}
+  m_Size: {x: 1, y: 1.25}
   m_EdgeRadius: 0
+--- !u!114 &149196592817507421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956dc17b34ca314428d493754b9d1725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zombie: {fileID: 11400000, guid: f4c8c38e17ae9284caeec60a87ee1bcd, type: 2}
+  _fxDead:
+  - {fileID: 198660}
+  - {fileID: 113326}
+  - {fileID: 198660}
+  _coin: {fileID: 4055401059539110749, guid: 16d1d1d9159baf441bb505395a2442b9, type: 3}
 --- !u!1 &111236
 GameObject:
   m_ObjectHideFlags: 0
@@ -9726,7 +9745,6 @@ GameObject:
   - component: {fileID: 2162025133970883935}
   - component: {fileID: 2807544799629485230}
   - component: {fileID: 4092269923595825067}
-  - component: {fileID: 3953067021359753899}
   m_Layer: 0
   m_Name: GunZombie
   m_TagString: Enemy
@@ -9745,8 +9763,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 446732}
   - {fileID: 442014}
+  - {fileID: 446732}
   - {fileID: 431302}
   - {fileID: 4000011837736464}
   m_Father: {fileID: 0}
@@ -9805,7 +9823,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.083509326}
+  m_Offset: {x: 0, y: 0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -9816,7 +9834,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.1866486}
+  m_Size: {x: 1, y: 0.25}
   m_EdgeRadius: 0
 --- !u!114 &2162025133970883935
 MonoBehaviour:
@@ -9856,24 +9874,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 11400000, guid: f4c8c38e17ae9284caeec60a87ee1bcd, type: 2}
---- !u!114 &3953067021359753899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 956dc17b34ca314428d493754b9d1725, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _zombie: {fileID: 11400000, guid: f4c8c38e17ae9284caeec60a87ee1bcd, type: 2}
-  _fxDead:
-  - {fileID: 198660}
-  - {fileID: 113326}
-  - {fileID: 198660}
-  _coin: {fileID: 4055401059539110749, guid: 16d1d1d9159baf441bb505395a2442b9, type: 3}
 --- !u!1 &122300
 GameObject:
   m_ObjectHideFlags: 0
@@ -19663,36 +19663,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!1 &136392
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 496718}
-  m_Layer: 0
-  m_Name: Wea
-  m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &496718
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136392}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.497, y: 0.87, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 442014}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &140904
 GameObject:
   m_ObjectHideFlags: 0
@@ -38883,7 +38853,7 @@ Transform:
   - {fileID: 479448}
   - {fileID: 458050}
   m_Father: {fileID: 448150}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &164720
 GameObject:
@@ -43740,11 +43710,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4303907407781452}
   - {fileID: 472374}
-  - {fileID: 496718}
+  - {fileID: 4303907407781452}
   m_Father: {fileID: 448150}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &188650
 GameObject:
@@ -49014,11 +48983,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551234825296340}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.899, y: 1.251, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 442014}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61182887211110264
 BoxCollider2D:
@@ -49033,7 +49002,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5317709, y: -0.38996476}
+  m_Offset: {x: -0.25, y: 0.75}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -49044,5 +49013,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9543978, y: 0.5690495}
+  m_Size: {x: 1.5, y: 0.5}
   m_EdgeRadius: 0

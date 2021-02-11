@@ -4804,6 +4804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 434802}
   - component: {fileID: 6176984}
+  - component: {fileID: 4914809851021534831}
   m_Layer: 10
   m_Name: HealthCollider
   m_TagString: ZombieHealth
@@ -4819,7 +4820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 1.03, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 421622}
@@ -4838,7 +4839,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15, y: 0.71}
+  m_Offset: {x: -0.100000024, y: 1.75}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4849,8 +4850,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.71, y: 2.02}
+  m_Size: {x: 1.25, y: 2.25}
   m_EdgeRadius: 0
+--- !u!114 &4914809851021534831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956dc17b34ca314428d493754b9d1725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zombie: {fileID: 11400000, guid: fcf5a58dac8f1c746b993f2406ee220d, type: 2}
+  _fxDead:
+  - {fileID: 135430}
+  - {fileID: 112682}
+  - {fileID: 135430}
+  _coin: {fileID: 4055401059539110749, guid: 16d1d1d9159baf441bb505395a2442b9, type: 3}
 --- !u!1 &104960
 GameObject:
   m_ObjectHideFlags: 0
@@ -23906,36 +23925,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!1 &118810
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 490780}
-  m_Layer: 0
-  m_Name: Wea
-  m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &490780
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118810}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.497, y: 0.87, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 421622}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &121242
 GameObject:
   m_ObjectHideFlags: 0
@@ -33777,7 +33766,6 @@ GameObject:
   - component: {fileID: 3968095026256401329}
   - component: {fileID: 2884931538807821734}
   - component: {fileID: 3843969190952554204}
-  - component: {fileID: 3532329457252785801}
   m_Layer: 0
   m_Name: BossZombie
   m_TagString: Enemy
@@ -33796,8 +33784,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 496626}
   - {fileID: 421622}
+  - {fileID: 496626}
   - {fileID: 482258}
   - {fileID: 4000010849934562}
   m_Father: {fileID: 0}
@@ -33907,24 +33895,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 11400000, guid: fcf5a58dac8f1c746b993f2406ee220d, type: 2}
---- !u!114 &3532329457252785801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 956dc17b34ca314428d493754b9d1725, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _zombie: {fileID: 11400000, guid: fcf5a58dac8f1c746b993f2406ee220d, type: 2}
-  _fxDead:
-  - {fileID: 135430}
-  - {fileID: 112682}
-  - {fileID: 135430}
-  _coin: {fileID: 4055401059539110749, guid: 16d1d1d9159baf441bb505395a2442b9, type: 3}
 --- !u!1 &159114
 GameObject:
   m_ObjectHideFlags: 0
@@ -43906,10 +43876,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 434802}
-  - {fileID: 490780}
   - {fileID: 4697448890842972}
   m_Father: {fileID: 433208}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &186164
 GameObject:
@@ -44025,7 +43994,7 @@ Transform:
   - {fileID: 412484}
   - {fileID: 469962}
   m_Father: {fileID: 433208}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &187932
 GameObject:
@@ -48901,11 +48870,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230294659409060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.899, y: 1.251, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 421622}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61596363187230026
 BoxCollider2D:
@@ -48920,7 +48889,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6497507, y: -0.30576593}
+  m_Offset: {x: -0.5, y: 1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -48931,5 +48900,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3469267, y: 0.9353739}
+  m_Size: {x: 1.75, y: 0.5}
   m_EdgeRadius: 0

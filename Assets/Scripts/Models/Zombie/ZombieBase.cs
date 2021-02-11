@@ -20,4 +20,9 @@ public abstract class ZombieBase : MonoBehaviour
     }
 
     public virtual void Execute() { }
+
+    protected void DestroyZombie()
+    {
+        gameObject.SetActive(false);
+    }
 }

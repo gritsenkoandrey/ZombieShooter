@@ -5,15 +5,17 @@ using UnityEngine;
 public class InputController: BaseController, IExecute, IInitialization, IFixExecute, IInitializationPlayer
 {
     private PlayerData _playerData;
+    private WeaponsData _weaponsData;
+
     private Vector2 _input;
 
-    private WeaponManager _weaponManager;
     private bool _isCanShoot;
     private bool _isHoldAttack;
 
     public InputController()
     {
         _playerData = Data.Instance.PlayerData;
+        _weaponsData = Data.Instance.WeaponsData;
         EventBus.Subscribe(this);
     }
 
@@ -30,7 +32,7 @@ public class InputController: BaseController, IExecute, IInitialization, IFixExe
         {
             if (Input.GetKeyDown(KeyCode.Tab))
             {
-                _weaponManager.SwitchWeapon();
+                _weaponsData.weaponManager.SwitchWeapon();
             }
 
             if (Input.GetKey(KeyCode.Space))
@@ -39,13 +41,13 @@ public class InputController: BaseController, IExecute, IInitialization, IFixExe
             }
             else
             {
-                _weaponManager.ResetAttack();
+                _weaponsData.weaponManager.ResetAttack();
                 _isHoldAttack = false;
             }
 
             if (_isHoldAttack && _isCanShoot)
             {
-                _weaponManager.Attack();
+                _weaponsData.weaponManager.Attack();
             }
         }
     }
@@ -70,6 +72,6 @@ public class InputController: BaseController, IExecute, IInitialization, IFixExe
     public void InitializationPlayer()
     {
         _playerData.Initialization();
-        _weaponManager = Object.FindObjectOfType<WeaponManager>();
+        _weaponsData.Initialization();
     }
 }

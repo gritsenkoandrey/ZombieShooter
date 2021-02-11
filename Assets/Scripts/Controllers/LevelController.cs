@@ -1,13 +1,14 @@
-﻿using System;
-using Interfaces;
+﻿using Interfaces;
 using UnityEngine;
 
 
-public sealed class LevelController : BaseController, IExecute, IInitialization, IZombieDie, IFenceDie, IStartLevel, ICleanUp
+public sealed class LevelController : BaseController, IExecute, IInitialization, IStartLevel, ICleanUp
 {
+    public static LevelController Instance;
+
     private int _coinCount;
-    private int _zombieCount;
-    private int _fenceCount;
+    private static int _zombieCount;
+    private static int _fenceCount;
     private readonly int _maxFence = 3;
     private int _stepCount;
     private int _timerCount;
@@ -27,6 +28,11 @@ public sealed class LevelController : BaseController, IExecute, IInitialization,
 
     public void Initialization()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
         EventBus.Subscribe(this);
         InitializationData();
     }
@@ -46,7 +52,7 @@ public sealed class LevelController : BaseController, IExecute, IInitialization,
 
             if (_zombieCount <= 0)
             {
-                GameOver();
+                GameEnd();
             }
         }
     }
@@ -57,10 +63,10 @@ public sealed class LevelController : BaseController, IExecute, IInitialization,
         if (_levelData.typeGameGoal == TypeGameGoal.DEFEND_FENCE)
         {
             _fenceCount--;
-
+            Debug.Log(_fenceCount);
             if (_fenceCount <= 0)
             {
-                GameOver();
+                GameLost();
             }
         }
     }
@@ -102,7 +108,6 @@ public sealed class LevelController : BaseController, IExecute, IInitialization,
                     _timeRemainingTimer.AddTimeRemaining();
                     break;
             }
-
             _isStartLevel = true;
         }
     }
@@ -115,7 +120,7 @@ public sealed class LevelController : BaseController, IExecute, IInitialization,
 
         if (_timerCount <= 0)
         {
-            GameOver();
+            GameEnd();
             _timeRemainingTimer.RemoveTimeRemaining();
         }
     }
@@ -137,7 +142,7 @@ public sealed class LevelController : BaseController, IExecute, IInitialization,
 
                         if (_stepCount <= 0)
                         {
-                            GameOver();
+                            GameEnd();
                         }
                         _playerPreviousPos = _playerTarget.position;
                     }
@@ -167,10 +172,17 @@ public sealed class LevelController : BaseController, IExecute, IInitialization,
         _levelData.typeGameGoal = TypeGameGoal.NONE;
     }
 
-    private void GameOver()
+    private void GameEnd()
     {
-        Debug.Log("Game Over");
-        Interface.GameMenu.ShowGameOverPanel();
+        Debug.Log("Game End");
+        Interface.GameMenu.ShowGameEndPanel();
+        _levelData.typeGameGoal = TypeGameGoal.GAME_OVER;
+    }
+
+    private void GameLost()
+    {
+        Debug.Log("Game Lost");
+        Interface.GameMenu.ShowGameLostPanel();
         _levelData.typeGameGoal = TypeGameGoal.GAME_OVER;
     }
 

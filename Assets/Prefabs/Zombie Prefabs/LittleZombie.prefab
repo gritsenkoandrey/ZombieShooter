@@ -9611,7 +9611,6 @@ GameObject:
   - component: {fileID: 6371041607669580100}
   - component: {fileID: 112762382711855577}
   - component: {fileID: 1216505278316042971}
-  - component: {fileID: 75304863282348982}
   m_Layer: 0
   m_Name: LittleZombie
   m_TagString: Enemy
@@ -9630,8 +9629,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4164134938027166}
   - {fileID: 4615857561298726}
+  - {fileID: 4164134938027166}
   - {fileID: 4736035020834916}
   - {fileID: 4121267395553370}
   m_Father: {fileID: 0}
@@ -9690,7 +9689,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.083509326}
+  m_Offset: {x: 0, y: 0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -9701,7 +9700,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.1866486}
+  m_Size: {x: 1, y: 0.25}
   m_EdgeRadius: 0
 --- !u!114 &6371041607669580100
 MonoBehaviour:
@@ -9741,24 +9740,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 11400000, guid: a2aefe3c89302214fb945b51fc35f2db, type: 2}
---- !u!114 &75304863282348982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163977106071414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 956dc17b34ca314428d493754b9d1725, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _zombie: {fileID: 11400000, guid: a2aefe3c89302214fb945b51fc35f2db, type: 2}
-  _fxDead:
-  - {fileID: 1294077092398870}
-  - {fileID: 1240282190124786}
-  - {fileID: 1294077092398870}
-  _coin: {fileID: 4055401059539110749, guid: 16d1d1d9159baf441bb505395a2442b9, type: 3}
 --- !u!1 &1181210880420030
 GameObject:
   m_ObjectHideFlags: 0
@@ -19595,7 +19576,7 @@ Transform:
   - {fileID: 4725443566359452}
   - {fileID: 4404126722308232}
   m_Father: {fileID: 4552805804736320}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1392003705350240
 GameObject:
@@ -19624,41 +19605,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4344074656004032}
   - {fileID: 4012156711633930}
-  - {fileID: 4096411393795784}
+  - {fileID: 4344074656004032}
   m_Father: {fileID: 4552805804736320}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1443937765184916
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4096411393795784}
-  m_Layer: 0
-  m_Name: Wea
-  m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4096411393795784
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443937765184916}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.497, y: 0.87, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4615857561298726}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1470613587001766
 GameObject:
@@ -19847,11 +19797,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515306743804110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.732, y: 1.391, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4615857561298726}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61095920754706912
 BoxCollider2D:
@@ -19866,7 +19816,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.38613683, y: -0.4801525}
+  m_Offset: {x: -0.5, y: 0.85}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -19877,7 +19827,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7169541, y: 0.5162089}
+  m_Size: {x: 1.25, y: 0.4}
   m_EdgeRadius: 0
 --- !u!1 &1529675771422256
 GameObject:
@@ -20166,6 +20116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4012156711633930}
   - component: {fileID: 61078667505055502}
+  - component: {fileID: 8160879737013229595}
   m_Layer: 10
   m_Name: HealthCollider
   m_TagString: ZombieHealth
@@ -20181,11 +20132,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632457722201366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 1.03, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4615857561298726}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61078667505055502
 BoxCollider2D:
@@ -20200,7 +20151,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000074505806, y: -0.014098644}
+  m_Offset: {x: 0, y: 1.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -20211,8 +20162,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.61779237}
+  m_Size: {x: 0.75, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8160879737013229595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632457722201366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956dc17b34ca314428d493754b9d1725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zombie: {fileID: 11400000, guid: a2aefe3c89302214fb945b51fc35f2db, type: 2}
+  _fxDead:
+  - {fileID: 1294077092398870}
+  - {fileID: 1240282190124786}
+  - {fileID: 1294077092398870}
+  _coin: {fileID: 4055401059539110749, guid: 16d1d1d9159baf441bb505395a2442b9, type: 3}
 --- !u!1 &1793291006302528
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,4 +5,11 @@
 public sealed class WeaponsData : ScriptableObject
 {
     public Weapon[] weapons;
+
+    internal WeaponManager weaponManager;
+
+    public void Initialization()
+    {
+        weaponManager = FindObjectOfType<WeaponManager>();
+    }
 }

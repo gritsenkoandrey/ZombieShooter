@@ -36,4 +36,9 @@ public static class ZombieList
             _zombieList[i].Execute();
         }
     }
+
+    public static void ClearList()
+    {
+        _zombieList.Clear();
+    }
 }
